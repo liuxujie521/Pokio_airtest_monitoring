@@ -32,6 +32,5 @@ def captcha():
         code_details.append(i)
     #转换成列表赋值给code_details
     return code_details
-print(captcha())
 
 ## test
