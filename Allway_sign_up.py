@@ -179,6 +179,11 @@ def sign_up_control_count(method=2):
     pickle.dump(sign_up_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
-
-sign_up_control_count()#运行开关
 #===========以上为控制层===============
+
+sign_up_control_count()
+'''
+运行开关
+默认==method=2跑所有注册
+1，0分别对应邮箱，bankid注册
+'''

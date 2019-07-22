@@ -3,6 +3,7 @@
 __author__ = "Morrow"
 
 import json
+import pickle
 import requests
 # from airtest.core.api import *
 # from poco.drivers.android.uiautomation import AndroidUiautomationPoco
@@ -33,4 +34,10 @@ def captcha():
     #转换成列表赋值给code_details
     return code_details
 
-## test
+
+sign_up_counter = 0
+login_counter = 0
+f = open('pickle.txt', 'wb')
+pickle.dump(sign_up_counter, f)
+f.close()
+#手动重置计数器
