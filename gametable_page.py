@@ -16,10 +16,13 @@ class GameOperationMethod(object):
         try:
             if self.pocos("btn_call").wait(1).exists():  #小盲位平跟
                 self.pocos("btn_call").click()
+                print("平跟")
             elif self.pocos("btn_allin").wait(1).exists():
                 self.pocos("btn_allin").click()
+                print("全推平跟")
             else:
                 self.pocos("btn_look").wait(1).click()
+                print("btnlook")
         except:
             print("平跟异常日志写入")
 
@@ -29,6 +32,7 @@ class GameOperationMethod(object):
             self.pocos("btn_add").wait(1).click()
             self.pocos("point_bar_end").click()   #ALL IN  全推
             self.pocos("btn_sure").click()        #DONE   确认
+            print("加注全推")
         except:
             print("加注异常日志写入")
 
@@ -87,6 +91,7 @@ class GameOperationMethod(object):
             self.pocos("<LayerColor | Tag = -1>").child("Button")[0].click('center')
             self.pocos("btn_end").wait(3).click('center')
             self.pocos("dialog_bg_9scale").child("btn_ok").click()
+            print("解散牌桌成功")
         except:
             print("解散牌局异常日志写入")
 
@@ -119,6 +124,7 @@ class GameOperationMethod(object):
         # print("chipfloat",chipfloat)
         return chipfloat
     
+
 
     def Close_Windows_processing(self):
         """保险与多次牌处理"""
