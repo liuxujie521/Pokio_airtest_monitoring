@@ -137,19 +137,6 @@ def Sweden_sign_up(email1):
 #===========以上为逻辑层===============
 
 
-
-if __name__ == '__main__' :
-    email='pokioairtest@yeah.net'
-    email1='pokiobankid@yeah.net'
-    jianyu='18675279268'# 被@人的手机号，不需要填 None
-    control=False# @所有人时：true，否则为：false
-    content1='邮箱注册失败\nPlease check error'#推送内容
-    content2='邮箱注册模块运行失败\nPlease check error'
-    content3='bankid注册失败\nPlease check error'
-    content4='bankid注册模块运行失败\nPlease check error'
-    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
-# ===========以上为本地参数===============
-
 @time_consuming
 def sign_up_control_count(method=2):
     f = open('pickle.txt', 'rb')
@@ -179,11 +166,25 @@ def sign_up_control_count(method=2):
     pickle.dump(sign_up_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
-#===========以上为控制层===============
 
-sign_up_control_count()
-'''
-运行开关
-默认==method=2跑所有注册
-1，0分别对应邮箱，bankid注册
-'''
+
+#===========以上为控制函数===============
+
+if __name__ == '__main__' :
+    email='pokioairtest@yeah.net'
+    email1='pokiobankid@yeah.net'
+    jianyu='18675279268'# 被@人的手机号，不需要填 None
+    control=False# @所有人时：true，否则为：false
+    content1='邮箱注册失败\nPlease check error'#推送内容
+    content2='邮箱注册模块运行失败\nPlease check error'
+    content3='bankid注册失败\nPlease check error'
+    content4='bankid注册模块运行失败\nPlease check error'
+    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
+    # ===========以上为本地参数===============
+    sign_up_control_count()
+    '''
+    运行开关
+    默认==method=2跑所有注册
+    1，0分别对应邮箱，bankid注册
+    '''
+    # 控制开关
