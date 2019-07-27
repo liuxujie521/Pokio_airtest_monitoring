@@ -13,7 +13,8 @@ import requests
 def dingding_Disaster(webhook,content,user=None,Atall=True):
     # 钉钉组中创建机器人的时候给出的webhook
     # 告警测试
-    # refer to: https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7629140.0.0.karFPe&treeId=257&articleId=105735&docType=1
+    # 测试推送url: https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4
+    # 正式服监控告警url：https: // oapi.dingtalk.com / robot / send?access_token = cb7ba6766aaef974374b305ab042650983d7b0a14384f93fa38931ba583aaa39
     # 组装内容
     data = {
         "msgtype": "text",
