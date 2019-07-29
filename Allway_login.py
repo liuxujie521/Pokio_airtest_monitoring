@@ -122,26 +122,6 @@ def Facebook_login(Facebook_Account,Namecheck_Facebook):
 #===========以上为逻辑层===============
 
 
-if __name__ == '__main__' :
-    Email_Account='test0130@163.com'
-    Mobile_Account='18566787073'
-    Facebook_Account='babysme@vip.qq.com'
-    jianyu='18675279268'# 被@人的手机号，不需要填 None
-    control=False# @所有人时：true，否则为：false
-    content1='邮箱登陆失败\nPlease check error'
-    content2='邮箱登陆运行失败\nPlease check error'
-    content3='手机登陆失败\nPlease check error'
-    content4='手机登陆运行失败\nPlease check error'
-    content5='第三方登陆失败\nease check error'
-    content6='第三方登陆运行失败\nPlease check error'
-    Namecheck_Email='test0130'
-    Namecheck_Mobile='test0133'
-    Namecheck_Facebook='Airtest'
-    webhook='https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
-#===========以上为本地参数===============
-
-
-
 @time_consuming
 def login_control_count(method=3):
     f = open('pickle.txt', 'rb')
@@ -159,10 +139,10 @@ def login_control_count(method=3):
             Mobile_login(Mobile_Account, Namecheck_Mobile)
         if method == 0:
             Facebook_login(Facebook_Account, Namecheck_Facebook)
-            login_counter = login_counter + 1
+        login_counter = login_counter + 1
         print('登陆模块已连续成功运行%d次！' % login_counter)
     except:
-        dingding_Disaster(webhook,'很遗憾，登陆模块在运行%d次时出错了' % login_counter, user=None, Atall=False)
+        dingding_Disaster(webhook,'很遗憾，登陆模块在连续运行%d次时出错了' % login_counter, user=None, Atall=False)
         login_counter = 0
     else:
         if login_counter % 100==0:
@@ -175,10 +155,30 @@ def login_control_count(method=3):
     f.close()
     #保存counter最终的值保存至pickle
 
-login_control_count()
-'''
-运行开关
-默认==method=3跑所有登陆
-2，1，0分别对应邮箱，手机，facebook登陆
-'''
-#===========以上为控制层===============
+#===========以上为控制函数===============
+
+
+if __name__ == '__main__' :
+    Email_Account='test0130@163.com'
+    Mobile_Account='18566787073'
+    Facebook_Account='babysme@vip.qq.com'
+    jianyu='18675279268'# 被@人的手机号，不需要填 None
+    control=False# @所有人时：true，否则为：false
+    content1='邮箱登陆失败\nPlease check error'
+    content2='邮箱登陆运行失败\nPlease check error'
+    content3='手机登陆失败\nPlease check error'
+    content4='手机登陆运行失败\nPlease check error'
+    content5='第三方登陆失败\nease check error'
+    content6='第三方登陆运行失败\nPlease check error'
+    Namecheck_Email='test0130'
+    Namecheck_Mobile='test0133'
+    Namecheck_Facebook='Airtest'
+    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
+    # ===========以上为本地参数===============
+    login_control_count()
+    '''
+    运行开关
+    默认==method=3跑所有登陆
+    2，1，0分别对应邮箱，手机，facebook登陆
+    '''
+    # 控制开关
