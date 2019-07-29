@@ -139,10 +139,10 @@ def login_control_count(method=3):
             Mobile_login(Mobile_Account, Namecheck_Mobile)
         if method == 0:
             Facebook_login(Facebook_Account, Namecheck_Facebook)
-            login_counter = login_counter + 1
+        login_counter = login_counter + 1
         print('登陆模块已连续成功运行%d次！' % login_counter)
     except:
-        dingding_Disaster(webhook,'很遗憾，登陆模块在运行%d次时出错了' % login_counter, user=None, Atall=False)
+        dingding_Disaster(webhook,'很遗憾，登陆模块在连续运行%d次时出错了' % login_counter, user=None, Atall=False)
         login_counter = 0
     else:
         if login_counter % 100==0:
@@ -173,7 +173,7 @@ if __name__ == '__main__' :
     Namecheck_Email='test0130'
     Namecheck_Mobile='test0133'
     Namecheck_Facebook='Airtest'
-    webhook='https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
+    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
     # ===========以上为本地参数===============
     login_control_count()
     '''
