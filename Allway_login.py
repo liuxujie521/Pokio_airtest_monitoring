@@ -28,19 +28,20 @@ def Email_login(Email_Account,Namecheck_Email):
         print("获取到Nickname：",Nickname)
         print("测试点：邮箱登陆成功")
         if Nickname==Namecheck_Email:
+        #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            #===========测试点===============
             poco("com.qfun.pokio:id/iv_title_left").click()
             poco(text="Settings").click()
             poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
             poco("com.qfun.pokio:id/tv_logout").click()
             poco("com.qfun.pokio:id/btn_select_exit").click()
-            #===========直接登出===============
+            #===========成功后直接登出===============
         else:
             print("测试点：登陆账号数据验证失败")
             print('--'*30)
             dingding_Disaster(webhook,content1,user=jianyu,Atall=control)
+            # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
         dingding_Disaster(webhook,content2,user=jianyu,Atall=control)
@@ -64,19 +65,20 @@ def Mobile_login(Mobile_Account,Namecheck_Mobile):
         print("获取到Nickname：",Nickname)
         print("测试点：手机登陆成功")
         if Nickname==Namecheck_Mobile:
+        #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            #===========测试点===============
             poco("com.qfun.pokio:id/iv_title_left").click()
             poco(text="Settings").click()
             poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
             poco("com.qfun.pokio:id/tv_logout").click()
             poco("com.qfun.pokio:id/btn_select_exit").click()
-            #===========直接登出===============
+            #===========成功后直接登出===============
         else:
             print("测试点：登陆账号数据验证失败")
             print('--'*30)
             dingding_Disaster(webhook,content3,user=jianyu,Atall=control)
+            # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
         dingding_Disaster(webhook,content4,user=jianyu,Atall=control)
@@ -100,19 +102,20 @@ def Facebook_login(Facebook_Account,Namecheck_Facebook):
         print("获取到Nickname：",Nickname)
         print("测试点：第三方登陆成功")
         if Nickname==Namecheck_Facebook:
+        #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            #===========测试点===============
             poco("com.qfun.pokio:id/iv_title_left").click()
             poco(text="Settings").click()
             poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
             poco("com.qfun.pokio:id/tv_logout").click()
             poco("com.qfun.pokio:id/btn_select_exit").click()
-            #===========直接登出===============
+            #===========成功后直接登出===============
         else:
             print("测试点：登陆账号数据验证失败")
             print('--'*30)
             dingding_Disaster(webhook,content5,user=jianyu,Atall=control)
+            # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
         dingding_Disaster(webhook,content6,user=jianyu,Atall=control)
@@ -154,7 +157,6 @@ def login_control_count(method=3):
     pickle.dump(login_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
-
 #===========以上为控制函数===============
 
 
@@ -164,16 +166,17 @@ if __name__ == '__main__' :
     Facebook_Account='babysme@vip.qq.com'
     jianyu='18675279268'# 被@人的手机号，不需要填 None
     control=False# @所有人时：true，否则为：false
-    content1='邮箱登陆失败\nPlease check error'
-    content2='邮箱登陆运行失败\nPlease check error'
-    content3='手机登陆失败\nPlease check error'
-    content4='手机登陆运行失败\nPlease check error'
-    content5='第三方登陆失败\nease check error'
-    content6='第三方登陆运行失败\nPlease check error'
+    content1='邮箱登陆成功\n但角色信息验证失败\n'
+    content2='邮箱登陆运行失败\n'
+    content3='手机登陆成功\n但角色信息验证失败\n'
+    content4='手机登陆运行失败\n'
+    content5='第三方登陆成功\n但角色信息验证失败\n'
+    content6='第三方登陆运行失败\n'
     Namecheck_Email='test0130'
     Namecheck_Mobile='test0133'
     Namecheck_Facebook='Airtest'
     webhook = 'https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
+    #该推送为测试群，request模块记录了正式群的钉钉url
     # ===========以上为本地参数===============
     login_control_count()
     '''
@@ -181,4 +184,3 @@ if __name__ == '__main__' :
     默认==method=3跑所有登陆
     2，1，0分别对应邮箱，手机，facebook登陆
     '''
-    # 控制开关

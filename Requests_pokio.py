@@ -63,5 +63,5 @@ def captcha(url):
     for i in R1:
         code_details.append(i)
     #转换成列表赋值给code_details
-    print(code_details)
+    print('当前验证码为：',code_details)
     return code_details
