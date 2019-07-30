@@ -171,6 +171,7 @@ def sign_up_control_count(method=2):
 if __name__ == '__main__' :
     url_normol='http://192.168.100.196:8109/pybigshare/login/captcha/?email=pokioairtest@yeah.net'
     url_sweden='http://192.168.100.196:8109/pybigshare/login/captcha/?email=pokiobankid@yeah.net'
+    #正式服域名：app.pokio.com
     email_normol='pokioairtest@yeah.net'
     email_sweden='pokiobankid@yeah.net'
     jianyu='18675279268'# 被@人的手机号，不需要填 None
@@ -180,7 +181,7 @@ if __name__ == '__main__' :
     content3='bankid注册成功\n但角色验证失败\n'
     content4='bankid注册运行失败\n'
     webhook ='https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
-    #该推送为测试群，request模块记录了正式群的钉钉url
+    #request模块记录了所有的钉钉url
     # ===========以上为本地参数===============
     sign_up_control_count()
     '''
