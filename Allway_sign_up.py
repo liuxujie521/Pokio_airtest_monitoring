@@ -68,7 +68,7 @@ def Normol_sign_up(email_normol,url_normol):
             print("测试点：用户数据错误")
             print('--'*30)
             dingding_Disaster(webhook,content1,user=jianyu,Atall=control)
-        #===========断言注册结果,失败钉钉告警===============
+        # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
         dingding_Disaster(webhook,content2,user=jianyu,Atall=control)
@@ -128,7 +128,7 @@ def Sweden_sign_up(email_sweden,url_sweden):
             print("测试点：用户数据错误")
             print('--' * 30)
             dingding_Disaster(webhook,content3, user=jianyu, Atall=control)
-        # ===========断言注册结果,失败钉钉告警===============
+        # ===========断言失败则推送钉钉===============
     except:
         print('\n' * 5 + '===========   运行失败     ===============')
         dingding_Disaster(webhook,content4, user=jianyu, Atall=control)
@@ -154,7 +154,6 @@ def sign_up_control_count(method=2):
         sign_up_counter = sign_up_counter + 1
         print('注册模块已连续成功运行%d次！' % sign_up_counter)
     except:
-        dingding_Disaster(webhook,'很遗憾，注册模块在连续运行%d次时失败。' % sign_up_counter, user=None, Atall=False)
         sign_up_counter = 0
     else:
         if sign_up_counter % 100==0:
@@ -166,9 +165,8 @@ def sign_up_control_count(method=2):
     pickle.dump(sign_up_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
-
-
 #===========以上为控制函数===============
+
 
 if __name__ == '__main__' :
     url_normol='http://192.168.100.196:8109/pybigshare/login/captcha/?email=pokioairtest@yeah.net'
@@ -177,11 +175,12 @@ if __name__ == '__main__' :
     email_sweden='pokiobankid@yeah.net'
     jianyu='18675279268'# 被@人的手机号，不需要填 None
     control=False# @所有人时：true，否则为：false
-    content1='邮箱注册失败\nPlease check error'#推送内容
-    content2='邮箱注册模块运行失败\nPlease check error'
-    content3='bankid注册失败\nPlease check error'
-    content4='bankid注册模块运行失败\nPlease check error'
+    content1='邮箱注册后成功\n但角色验证失败\n'#推送内容
+    content2='邮箱注册运行失败\n'
+    content3='bankid注册成功\n但角色验证失败\n'
+    content4='bankid注册运行失败\n'
     webhook ='https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
+    #该推送为测试群，request模块记录了正式群的钉钉url
     # ===========以上为本地参数===============
     sign_up_control_count()
     '''
@@ -189,4 +188,3 @@ if __name__ == '__main__' :
     默认==method=2跑所有注册
     1，0分别对应邮箱，bankid注册
     '''
-    # 控制开关
