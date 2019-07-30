@@ -3,13 +3,27 @@ __author__ = "zhouming"
 
 from airtest.core.api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+
 from poco.drivers.std import StdPoco
 
 class GameOperationMethod(object):
     """游戏内操作的所有方法"""
-    def __init__(self,pocos):
+    def __init__(self,pocos,poco):
         self.pocos = pocos
+        self.poco = poco
+
+    def _Entrance_table(self, tablesna):
+        """指定入桌"""
+        for i in range(3):
+            if self.poco("com.qfun.pokio:id/main_footbar_lobbydbtn").wait(2).exists():
+                print("首页面找到元素")
+                break  # 找到了就跳出循环
+            else:
+                keyevent("BACK")  # 使页面回来首页
+        self.poco("com.qfun.pokio:id/main_footbar_lobbydbtn").wait(2).click()  # Pyay页面
+        self.poco(text=tablesna).click()  # 点击指定的牌桌
+
 
     def _Game_table_check(self):
         """平跟"""
@@ -40,7 +54,6 @@ class GameOperationMethod(object):
         """弃牌"""
         self.pocos("btn_fold").wait(1).click()
 
-
     # ============================================================================================
     def _Game_table_sitdown(self):
         """桌内坐下来"""
@@ -52,7 +65,7 @@ class GameOperationMethod(object):
             if self.pocos("panel_expand").child("btn_find_bb").wait(2).exists():
                 print("确认成功并成功弹出Wait for BB")
                 self.pocos("lbl_daytime").wait(1).click()
-            
+
             elif self.pocos("panel_warn").child("lbl_tip_warn").wait().exists():#余额不足判断
                 print("余额不足，玩家无法坐下验证成功")
             else:
@@ -123,7 +136,6 @@ class GameOperationMethod(object):
         chipfloat=self.Wallet_string_processing(chips)
         # print("chipfloat",chipfloat)
         return chipfloat
-    
 
 
     def Close_Windows_processing(self):
@@ -135,16 +147,60 @@ class GameOperationMethod(object):
             print("多次牌弹窗关闭")
             self.pocos("btn_close").wait(0.5).click()
 
-            
-            
-            
-#         poco("panel_content") #保险与多次牌处理
-#         poco("btn_close")       #叉处理按钮
-#         poco("buyinsurance")    #Insurance保险按钮
-#         poco("faduocipai")      #Run Mor Times多次牌按钮
+    def _Tablesend_achievement_dataget(self):
+        """结算Achievement页面数据获取"""
+        date = self.poco("com.qfun.pokio:id/tv_game_date").get_text()  # 日期
+        tablename = self.poco("com.qfun.pokio:id/tv_game_name").get_text()  # 牌桌名
+        stakes = self.poco("com.qfun.pokio:id/tv_game_binds").get_text()  # 大小盲
+        handsplayed = self.poco("com.qfun.pokio:id/tv_game_total_hands").get_text()  # 多少手牌
+        biggestpot = self.poco("com.qfun.pokio:id/tv_game_big_pot").get_text()  # 最大奖池
 
-# # if 出现弹窗（或关系统）
+        username_01 = self.poco("android:id/list").child("android.widget.RelativeLayout")[0].child(
+            "com.qfun.pokio:id/tv_user_name").get_text()  # 玩家1名称
+        profit_01 = self.poco("android:id/list").child("android.widget.RelativeLayout")[0].child(
+            "com.qfun.pokio:id/tv_profit").get_text()  # 玩家1输赢金额
+        username_02 = self.poco("android:id/list").child("android.widget.RelativeLayout")[1].child(
+            "com.qfun.pokio:id/tv_user_name").get_text()  # 玩家2名称
+        profit_02 = self.poco("android:id/list").child("android.widget.RelativeLayout")[1].child(
+            "com.qfun.pokio:id/tv_profit").get_text()  # 玩家2输赢金额
+        # print(type(date))
+        # print(date)
+        # print("==============================================")
+        # print(type(tablename))
+        # print(tablename)
+        # print("==============================================")
+        # print(type(stakes))
+        # print(stakes)
+        # print("==============================================")
+        # print(type(handsplayed))
+        # print(handsplayed)
+        # print("==============================================")
+        # print(type(biggestpot))
+        # print(biggestpot)
+        # print("==============================================")
+        # print("username_01",username_01)
+        # print("profit_01",profit_01)
+        # print("username_01",username_02)
+        # print("profit_02",profit_02)
+        #
+        return date, tablename, biggestpot, username_01, profit_01, username_02, profit_02
 
+    def _Wallet_Netrevenue_dataget(self,clubna):
+        """钱包俱乐部净收益最新数据获取"""
+        if self.poco("com.qfun.pokio:id/main_footbar_cashierbtn").wait(2).exists():
+            print("已经在首页")
+        else:
+            keyevent("BACK")
+
+        self.poco("com.qfun.pokio:id/main_footbar_cashierbtn").click()  # 钱包模块
+        self.poco(text=clubna).wait(2).click()
+        sleep(1)
+        poco_item = self.poco("com.qfun.pokio:id/lv_club_latest").child("com.qfun.pokio:id/rl_record_item")[0]  # 第一个净收入
+        time_t = poco_item.child("com.qfun.pokio:id/tv_record_time").get_text()  # 获取收入的时间（核对的条件）
+        revenue = poco_item.offspring("com.qfun.pokio:id/tv_club_revenue").get_text()  # 获取俱乐部收入（抽水的核对）
+        print(time_t)
+        print("ttt:", revenue)
+        return time_t, revenue  # r返回时间与净收入
 
 #验证流程操作
 #=======================================================================
