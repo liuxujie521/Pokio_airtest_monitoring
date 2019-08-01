@@ -1,8 +1,10 @@
 # -*- encoding=utf8 -*-
 __author__ = "zhouming"
 
-from test_one import *
+
 from airtest.core.api import *
+from gametable_page import *
+from pokio_crm import *
 
 dev1 = connect_device(
     "Android://127.0.0.1:5037/127.0.0.1:62026?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH")  #
@@ -10,19 +12,24 @@ dev2 = connect_device(
     "Android://127.0.0.1:5037/127.0.0.1:62027?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH")  #
 
 
-def Gametable_test_01():
-    """流程进桌打牌流程"""
-
-    table = "HHH"  # 桌子名字
+def Gametable_test_01(table,clubs):
+    """
+    流程进桌打牌流程
+    :param table: 需要操作的桌子名字
+    :param clubs: 需要操作的俱乐部名字
+    :return:
+    """
     set_current(0)  # 切换到一台机器
     print("第一台")
     pocos = StdPoco(15004, dev1)  # 实例化游戏内元素指针
     poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)  # 实例化安卓原生指针
-    po1 = GameOperationMethod(pocos, poco)
+    po1 = GameOperationMethod(pocos,poco)
     po1._Entrance_table(table)  # 指定性入桌（桌子名）
     wallet1 = po1._Game_table_walletget()  # 获取余额
     print(wallet1)
-    po1._Game_table_sitdown()  # 坐下来
+    if po1._Game_table_sitdown():  # 坐下来
+        print("===非正常执行中断===")
+        return
     print("切换第二台")
     set_current(1)  # 切换到一台机器
 
@@ -31,14 +38,15 @@ def Gametable_test_01():
     po2 = GameOperationMethod(pocos, poco)
     po2._Entrance_table(table)
     wallet2 = po2._Game_table_walletget()  # 获取余额
-    po2._Game_table_sitdown()  # 坐下来
-
+    if po2._Game_table_sitdown():  # 坐下来
+        print("===非正常执行中断===")
+        return
     set_current(0)  # 切换到一台机器
     pocos = StdPoco(15004, dev1)
     pocos("btn_begingame").wait(1).click()  # 点击开始
     if pocos("<Layer | Tag = -1>").child("<Layer | Tag = -1>")[1].child("default_user")[0].offspring(
             "<Node | Tag = 136").wait(8).exists():
-        # 判断大小盲是否出现来断定是否发牌了
+        # 判断大小盲注是否出现来断定是否发牌了
         for i in range(3):
             set_current(0)  # 切换到一台机器
             pocos = StdPoco(15004, dev1)
@@ -63,8 +71,7 @@ def Gametable_test_01():
                         po2._Game_table_check()  # 平跟
         sleep(3)  # 等待弹窗
 
-        for i in range(2):
-            # ====弹窗处理=============================================
+        for i in range(2):  # ==弹窗处理=============================================
             set_current(0)  # 切换到一台机器
             pocos = StdPoco(15004, dev1)
             if pocos("main_panel").wait(1).exists():
@@ -81,7 +88,8 @@ def Gametable_test_01():
                 else:
                     print("胜率50%,不做弹窗处理")
             sleep(3)  # 处理完后等待加载后面一次弹窗
-
+    else:
+        print("没有开牌")
     set_current(0)  # 切换到一台机器
     pocos = StdPoco(15004, dev1)
     if pocos("dialog_bg_9scale").wait(2).exists():  # 判断Add chips继续加注弹窗
@@ -100,14 +108,25 @@ def Gametable_test_01():
             po1._Game_table_observe()  # 站起
 
     set_current(0)  # 切换到一台机器
-    # pocos = StdPoco(15004, dev1)
+    pocos = StdPoco(15004, dev1)
+    poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+    po1 = GameOperationMethod(pocos, poco)
     po1._Game_table_tablesettings()  # 结束该桌子
+    sleep(2)#页面加载时间等待
+    date, tablename, biggestpot, username_01, profit_01, username_02, profit_02=po1._Tablesend_achievement_dataget()  # 结算页面数据获取
+    sleep(1)
+    timett,dtattt=po1._Wallet_Netrevenue_dataget(clubs)
 
-    po1._Tablesend_achievement_dataget()  # 结算页面数据获取
-
-    po1._Wallet_Netrevenue_dataget()
-
-
+    if date==timett and dtattt=="+€1.20":
+        print("俱乐部净收入正常")
+    else:
+        print("不")
 if __name__ == '__main__':
+    """初始化数据，执行"""
+    table = "HHH"  # 桌子名字
+    clubs = "EEE"
     print("开始")
-    Gametable_test_01()  # 从选择牌桌进入、余额获取、坐下、平跟、加注、弹窗处理、站起、结算
+    CRM_main()  #初始化用户余额为25
+    print("CRM")
+    Gametable_test_01(table,clubs)  # 从选择牌桌进入、余额获取、坐下、平跟、加注、保险弹窗处理、站起、结束牌桌，
+    print("结束")
