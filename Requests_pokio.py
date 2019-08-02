@@ -56,12 +56,11 @@ def captcha(url):
     #转换为“dict”
     R1=R["data"]["captcha"]
     #取字典中的字典的值
-    if R1 == 'null':
+    if R1 == None:
         raise Exception('验证码没有给出')
     #判空时抛出错误
-    code_details=[]
-    for i in R1:
-        code_details.append(i)
-    #转换成列表赋值给code_details
-    print('当前验证码为：',code_details)
-    return code_details
+    print('当前验证码为：',R1)
+    return R1
+
+# a='https://oapi.dingtalk.com/robot/send?access_token=859982b9d50aef0c502af69287842b9b10dda4673c717a21a54c6813bc689448'
+# dingding_Disaster(a,'辣鸡!!!!',user=17789104200,Atall=False)
