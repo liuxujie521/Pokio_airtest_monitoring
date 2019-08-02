@@ -1,6 +1,7 @@
 # -*- encoding=utf8 -*-
 __author__ = "zhouming"
 
+import time
 from airtest.core.api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 # poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
@@ -59,19 +60,22 @@ class GameOperationMethod(object):
         """桌内坐下来"""
         try:
             sleep(1)
-            self.pocos("<Layer | Tag = -1>").child("<Layer | Tag = -1>")[1].child("Button")[0].click('center')
-            self.pocos("panel_tip").child("btn_ok").click('center') #点击
+            self.pocos("<Layer | Tag = -1>").child("<Layer | Tag = -1>")[1].child("Button")[0].click('center')  #选择座位
+            self.pocos("panel_tip").child("btn_ok").click('center') #点击坐下
 
-            if self.pocos("panel_expand").child("btn_find_bb").wait(2).exists():
+            if self.pocos("panel_expand_touch").wait(1).exists():   #For BB元素一直存在，判断是不是展开，通过遮罩元素来判断               
                 print("确认成功并成功弹出Wait for BB")
                 self.pocos("lbl_daytime").wait(1).click()
 
             elif self.pocos("panel_warn").child("lbl_tip_warn").wait().exists():#余额不足判断
                 print("余额不足，玩家无法坐下验证成功")
+                return True
             else:
                 print("坐下失败")
+                return True
         except:
             print("桌内坐下来异常日志写入")
+            return True
 
     def _Game_table_observe(self):
         """桌内站起"""
@@ -149,6 +153,8 @@ class GameOperationMethod(object):
 
     def _Tablesend_achievement_dataget(self):
         """结算Achievement页面数据获取"""
+        print("Achievement页面数据")
+        sleep(2)
         date = self.poco("com.qfun.pokio:id/tv_game_date").get_text()  # 日期
         tablename = self.poco("com.qfun.pokio:id/tv_game_name").get_text()  # 牌桌名
         stakes = self.poco("com.qfun.pokio:id/tv_game_binds").get_text()  # 大小盲
@@ -163,25 +169,25 @@ class GameOperationMethod(object):
             "com.qfun.pokio:id/tv_user_name").get_text()  # 玩家2名称
         profit_02 = self.poco("android:id/list").child("android.widget.RelativeLayout")[1].child(
             "com.qfun.pokio:id/tv_profit").get_text()  # 玩家2输赢金额
-        # print(type(date))
-        # print(date)
-        # print("==============================================")
-        # print(type(tablename))
-        # print(tablename)
-        # print("==============================================")
-        # print(type(stakes))
-        # print(stakes)
-        # print("==============================================")
-        # print(type(handsplayed))
-        # print(handsplayed)
-        # print("==============================================")
-        # print(type(biggestpot))
-        # print(biggestpot)
-        # print("==============================================")
-        # print("username_01",username_01)
-        # print("profit_01",profit_01)
-        # print("username_01",username_02)
-        # print("profit_02",profit_02)
+        print(type(date))
+        print(date)
+        print("==============================================")
+        print(type(tablename))
+        print(tablename)
+        print("==============================================")
+        print(type(stakes))
+        print(stakes)
+        print("==============================================")
+        print(type(handsplayed))
+        print(handsplayed)
+        print("==============================================")
+        print(type(biggestpot))
+        print(biggestpot)
+        print("==============================================")
+        print("username_01",username_01)
+        print("profit_01",profit_01)
+        print("username_01",username_02)
+        print("profit_02",profit_02)
         #
         return date, tablename, biggestpot, username_01, profit_01, username_02, profit_02
 
@@ -196,11 +202,14 @@ class GameOperationMethod(object):
         self.poco(text=clubna).wait(2).click()
         sleep(1)
         poco_item = self.poco("com.qfun.pokio:id/lv_club_latest").child("com.qfun.pokio:id/rl_record_item")[0]  # 第一个净收入
-        time_t = poco_item.child("com.qfun.pokio:id/tv_record_time").get_text()  # 获取收入的时间（核对的条件）
+        time_s = poco_item.child("com.qfun.pokio:id/tv_record_time").get_text()  # 获取收入的时间（核对的条件）
+        time_ms = time.strftime(time_s,'%d/%m/%Y %H:%M:%S')
+        time_m = time.strftime('%d/%m/%Y %H:%M',time_ms)  #去掉秒精度
+
         revenue = poco_item.offspring("com.qfun.pokio:id/tv_club_revenue").get_text()  # 获取俱乐部收入（抽水的核对）
-        print(time_t)
+        print(time_m)
         print("ttt:", revenue)
-        return time_t, revenue  # r返回时间与净收入
+        return time_m, revenue  # r返回时间与净收入
 
 #验证流程操作
 #=======================================================================
