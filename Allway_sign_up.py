@@ -84,6 +84,7 @@ def Normol_sign_up():
             sleep(5)
         #===========断言成功：角色名与创建使用的相同===============
     except:
+        result = False
         print('--' * 30)
         print('运行失败，请检查traceback')
         dingding_Disaster(webhook, content3, user=jianyu, Atall=control)
@@ -162,6 +163,7 @@ def Sweden_sign_up():
             sleep(5)
         # ===========断言成功：角色名与创建使用的相同===============
     except:
+        result = False
         print('--' * 30)
         print('运行失败，请检查traceback')
         dingding_Disaster(webhook, content3, user=jianyu, Atall=control)
