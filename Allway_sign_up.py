@@ -175,7 +175,7 @@ def Sweden_sign_up():
 
 @time_consuming
 def sign_up_control_count(method=2):
-    f = open('pickle.txt', 'rb')
+    f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'rb')
     sign_up_counter = pickle.load(f)
     f.close()
     #读取pickle文件中的counter变量值
@@ -200,7 +200,7 @@ def sign_up_control_count(method=2):
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
-    f = open('pickle.txt', 'wb')
+    f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'wb')
     pickle.dump(sign_up_counter, f)
     f.close()
     #保存counter最终的值保存至pickle

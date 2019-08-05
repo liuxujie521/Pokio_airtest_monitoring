@@ -119,7 +119,7 @@ def Facebook_login():
 
 @time_consuming
 def login_control_count(method=3):
-    f = open('pickle.txt', 'rb')
+    f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'rb')
     login_counter = pickle.load(f)
     f.close()
     #读取pickle文件中的counter变量值
@@ -145,7 +145,7 @@ def login_control_count(method=3):
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
-    f = open('pickle.txt', 'wb')
+    f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'wb')
     pickle.dump(login_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
