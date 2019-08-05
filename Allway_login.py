@@ -13,8 +13,9 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 # use ADB orientation ：解决屏幕旋转问题
 # use ADB touch：解决无法点击的问题
 
-def Email_login(Email_Account,Namecheck_Email):
+def Email_login():
     try:
+        start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_email_address").click()
         poco("com.qfun.pokio:id/et_email").set_text(Email_Account)
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
@@ -31,11 +32,7 @@ def Email_login(Email_Account,Namecheck_Email):
         #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            poco("com.qfun.pokio:id/iv_title_left").click()
-            poco(text="Settings").click()
-            poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
-            poco("com.qfun.pokio:id/tv_logout").click()
-            poco("com.qfun.pokio:id/btn_select_exit").click()
+            stop_app("com.qfun.pokio")
             #===========成功后直接登出===============
         else:
             print("测试点：登陆账号数据验证失败")
@@ -50,8 +47,9 @@ def Email_login(Email_Account,Namecheck_Email):
     sleep(5)
         
         
-def Mobile_login(Mobile_Account,Namecheck_Mobile):
+def Mobile_login():
     try:
+        start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_mobile_number").click()
         poco("com.qfun.pokio:id/et_mobile_number").set_text(Mobile_Account)
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
@@ -68,11 +66,7 @@ def Mobile_login(Mobile_Account,Namecheck_Mobile):
         #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            poco("com.qfun.pokio:id/iv_title_left").click()
-            poco(text="Settings").click()
-            poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
-            poco("com.qfun.pokio:id/tv_logout").click()
-            poco("com.qfun.pokio:id/btn_select_exit").click()
+            stop_app("com.qfun.pokio")
             #===========成功后直接登出===============
         else:
             print("测试点：登陆账号数据验证失败")
@@ -87,8 +81,9 @@ def Mobile_login(Mobile_Account,Namecheck_Mobile):
     sleep(5)
         
         
-def Facebook_login(Facebook_Account,Namecheck_Facebook):
+def Facebook_login():
     try:
+        start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_facebook_login").click()
         poco("m_login_email").wait(10).set_text(Facebook_Account)
         poco("m_login_password").set_text('a8164591')
@@ -105,11 +100,8 @@ def Facebook_login(Facebook_Account,Namecheck_Facebook):
         #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            poco("com.qfun.pokio:id/iv_title_left").click()
-            poco(text="Settings").click()
-            poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
-            poco("com.qfun.pokio:id/tv_logout").click()
-            poco("com.qfun.pokio:id/btn_select_exit").click()
+            print('--'*30)
+            stop_app("com.qfun.pokio")
             #===========成功后直接登出===============
         else:
             print("测试点：登陆账号数据验证失败")
@@ -133,15 +125,15 @@ def login_control_count(method=3):
     #读取pickle文件中的counter变量值
     try:
         if method == 3:
-            Email_login(Email_Account, Namecheck_Email)
-            Mobile_login(Mobile_Account, Namecheck_Mobile)
-            Facebook_login(Facebook_Account, Namecheck_Facebook)
+            Email_login()
+            Mobile_login()
+            Facebook_login()
         if method == 2:
-            Email_login(Email_Account, Namecheck_Email)
+            Email_login()
         if method == 1:
-            Mobile_login(Mobile_Account, Namecheck_Mobile)
+            Mobile_login()
         if method == 0:
-            Facebook_login(Facebook_Account, Namecheck_Facebook)
+            Facebook_login()
         login_counter = login_counter + 1
         print('登陆模块已连续成功运行%d次！' % login_counter)
     except:
@@ -177,10 +169,16 @@ if __name__ == '__main__' :
     Namecheck_Facebook='Airtest'
     webhook = 'https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
     #该推送为测试群，request模块记录了正式群的钉钉url
-    # ===========以上为本地参数===============
-    login_control_count()
-    '''
-    运行开关
-    默认==method=3跑所有登陆
-    2，1，0分别对应邮箱，手机，facebook登陆
-    '''
+# ===========以上为本地参数===============
+
+login_control_count()
+'''
+运行开关
+默认==method=3跑所有登陆
+2，1，0分别对应邮箱，手机，facebook登陆
+'''
+#===========以上为运行脚本===============
+# while True:
+#     login_control_count()
+#     sleep(20)
+#===========循环验证，上线后屏蔽===============

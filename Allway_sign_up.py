@@ -14,6 +14,8 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 # use ADB orientation ：解决屏幕旋转问题
 # use ADB touch：解决无法点击的问题
 def Normol_sign_up():
+    global result
+    result=True
     try:
         start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_sign_up").wait(10).click()
@@ -57,35 +59,43 @@ def Normol_sign_up():
         print("注册完成，等待验证")
         print('--'*30)
         #===========注册完成===============
-        poco("com.qfun.pokio:id/txt_title_right").click()
+        poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         #===========跳过导流===============
+        sleep(5)
         while poco("com.qfun.pokio:id/iv_next").exists():
             poco("com.qfun.pokio:id/iv_next").click()
         #===========通过新手引导===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
         username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
-        #===========获取username===============
         if username == 'Username':
-            dingding_Disaster(webhook,content1,user=jianyu,Atall=control)
+            result=False
+            dingding_Disaster(webhook, content1, user=jianyu, Atall=control)
             raise AssertionError(content1)
+        #===========角色名没有展示：可能是账号被提前删了===============
         elif username != first_name:
-            dingding_Disaster(webhook,content2,user=jianyu,Atall=control)
+            result=False
+            dingding_Disaster(webhook, content2, user=jianyu, Atall=control)
             raise AssertionError(content2)
+        #===========断言失败：角色名与创建使用的不同===============
         else:
             print(content4)
-            print('--'*30)
-            poco("com.qfun.pokio:id/btn_start").click()
+            print('--' * 30)
             stop_app("com.qfun.pokio")
-        # ===========断言失败则推送钉钉===============
+            sleep(5)
+        #===========断言成功：角色名与创建使用的相同===============
     except:
-        print('--'*30)
+        print('--' * 30)
         print('运行失败，请检查traceback')
-        dingding_Disaster(webhook,content3,user=jianyu,Atall=control)
+        dingding_Disaster(webhook, content3, user=jianyu, Atall=control)
         traceback.print_exc()
-    sleep(5)
+        stop_app("com.qfun.pokio")
+        sleep(5)
+        # ===========运行失败：其他一切因素都可能导致===============
 
 
 def Sweden_sign_up():
+    global result
+    result=True
     try:
         start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_sign_up").wait(10).click()
@@ -120,12 +130,13 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/cb_agree").wait(5).click()
         poco("com.qfun.pokio:id/tv_confirm").click()
         print('--' * 30)
-        print("注册使用昵称：", first_name)
+        print("注册使用昵称：", 'Tomer')
         print("注册完成，等待验证")
         print('--' * 30)
         # ===========注册完成===============
-        poco("com.qfun.pokio:id/txt_title_right").click()
+        poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         # ===========跳过导流===============
+        sleep(5)
         while poco("com.qfun.pokio:id/iv_next").exists():
             poco("com.qfun.pokio:id/iv_next").click()
         # ===========通过新手引导===============
@@ -135,24 +146,30 @@ def Sweden_sign_up():
         username = poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
         # ===========获取username===============
         if username == 'Username':
+            result=False
             dingding_Disaster(webhook, content1, user=jianyu, Atall=control)
             raise AssertionError(content1)
+        #===========角色名没有展示：可能是账号被提前删了===============
         elif username != 'Tomer':
+            result=False
             dingding_Disaster(webhook, content2, user=jianyu, Atall=control)
             raise AssertionError(content2)
+        # ===========断言失败：角色名与创建使用的不同===============
         else:
             print(content4)
             print('--' * 30)
-            poco("com.qfun.pokio:id/btn_start").click()
             stop_app("com.qfun.pokio")
-        # ===========断言失败则推送钉钉===============
+            sleep(5)
+        # ===========断言成功：角色名与创建使用的相同===============
     except:
         print('--' * 30)
         print('运行失败，请检查traceback')
         dingding_Disaster(webhook, content3, user=jianyu, Atall=control)
         traceback.print_exc()
-        raise
-    sleep(5)
+        stop_app("com.qfun.pokio")
+        sleep(5)
+        # ===========运行失败：其他一切因素都可能导致===============
+
 #===========以上为逻辑层===============
 
 
@@ -170,9 +187,12 @@ def sign_up_control_count(method=2):
             Normol_sign_up()
         if method == 0:
             Sweden_sign_up()
+        if result == False:
+            raise AssertionError('连续运行记录中断')
         sign_up_counter = sign_up_counter + 1
         print('注册模块已连续成功运行%d次！' % sign_up_counter)
     except:
+        print('注册模块连续运行%d次后失败了！' % sign_up_counter)
         sign_up_counter = 0
     else:
         if sign_up_counter % 100==0:
@@ -188,8 +208,8 @@ def sign_up_control_count(method=2):
 
 
 if __name__ == '__main__' :
-    url_normol='http://192.168.100.196:8109/pybigshare/login/captcha/?email=pokioairtest@yeah.net'
-    url_sweden='http://192.168.100.196:8109/pybigshare/login/captcha/?email=pokiobankid@yeah.net'
+    url_normol='https://app-test2.pokio.com/pybigshare/login/captcha/?email=pokioairtest@yeah.net'
+    url_sweden='https://app-test2.pokio.com/pybigshare/login/captcha/?email=pokiobankid@yeah.net'
     #正式服域名：app.pokio.com
     email_normol='pokioairtest@yeah.net'
     email_sweden='pokiobankid@yeah.net'
@@ -202,10 +222,17 @@ if __name__ == '__main__' :
     content4='测试点,注册验证通过'
     webhook ='https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4'
     #request模块记录了所有的钉钉url
-    # ===========以上为本地参数===============
-    sign_up_control_count()
-    '''
-    运行开关
-    默认==method=2跑所有注册
-    1，0分别对应邮箱，bankid注册
-    '''
+# ===========以上为本地参数===============
+
+sign_up_control_count()
+'''
+运行开关
+默认==method=2跑所有注册
+1，0分别对应邮箱，bankid注册
+'''
+#===========以上为运行脚本===============
+
+# while True:
+#     sign_up_control_count()
+#     sleep(20)
+#===========循环验证，上线后屏蔽===============
