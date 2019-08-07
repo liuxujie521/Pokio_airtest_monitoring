@@ -14,13 +14,11 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 # use ADB orientation ：解决屏幕旋转问题
 # use ADB touch：解决无法点击的问题
 def Normol_sign_up():
-    global result
-    result=True
     try:
         start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_sign_up").wait(10).click()
         #===========进入注册界面===============
-        poco("com.qfun.pokio:id/et_email_address").set_text(email_normol)
+        poco("com.qfun.pokio:id/et_email_address").wait(10).set_text(email_normol)
         poco("com.qfun.pokio:id/et_pwd").set_text('Qq12345.')
         poco("com.qfun.pokio:id/et_confirm_pwd").set_text('Qq12345.')
         #===========密码固定‘Qq12345.’===============
@@ -31,7 +29,7 @@ def Normol_sign_up():
         poco("com.qfun.pokio:id/et_code").set_text(code_details)
         #===========填入验证码===============
         poco("com.qfun.pokio:id/cb_terms").click()#勾选协议
-        poco("com.qfun.pokio:id/btn_continue").click()
+        poco("com.qfun.pokio:id/tv_commit").click()
         #===========转入第二界面===============
         poco("com.qfun.pokio:id/tv_country").click()
         poco("com.qfun.pokio:id/et_search").set_text('Ice')
@@ -51,7 +49,7 @@ def Normol_sign_up():
         poco("com.qfun.pokio:id/et_city").set_text("aidemoli")
         poco("android.widget.ScrollView").swipe([-0.005, -0.8388])#多次下滑操作，防止小分配率机型无法显示下半部分
         poco("com.qfun.pokio:id/et_postal_code").wait(4).set_text('1234567890')
-        poco("com.qfun.pokio:id/btn_continues").click() 
+        poco("com.qfun.pokio:id/tv_commit").click() 
         poco("com.qfun.pokio:id/cb_agree").wait(5).click()
         poco("com.qfun.pokio:id/tv_confirm").click()
         print('--'*30)
@@ -61,47 +59,47 @@ def Normol_sign_up():
         #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         #===========跳过导流===============
-        sleep(5)
+        sleep(6)
         while poco("com.qfun.pokio:id/iv_next").exists():
             poco("com.qfun.pokio:id/iv_next").click()
         #===========通过新手引导===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
         username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
-        if username == 'Username':
-            result=False
-            dingding_Disaster(webhook, content1, user=jianyu, Atall=control)
-            raise AssertionError(content1)
-        #===========角色名没有展示：可能是账号被提前删了===============
-        elif username != first_name:
-            result=False
-            dingding_Disaster(webhook, content2, user=jianyu, Atall=control)
-            raise AssertionError(content2)
-        #===========断言失败：角色名与创建使用的不同===============
-        else:
+        #===========进入个人信息获取角色名================
+        if username == first_name:
             print(content4)
             print('--' * 30)
             stop_app("com.qfun.pokio")
             sleep(5)
         #===========断言成功：角色名与创建使用的相同===============
     except:
-        result = False
-        print('--' * 30)
-        print('运行失败，请检查traceback')
-        dingding_Disaster(webhook, content3, user=jianyu, Atall=control)
-        traceback.print_exc()
+        if poco("com.qfun.pokio:id/tv_user_name").exists():
+            username=poco("com.qfun.pokio:id/tv_user_name").get_text()
+        else:
+            username=None
+        # ===========如果能抓到角色名，断言一下，没有就看报错===============
+        if username == None:
+            pass
+        elif username == 'Username':
+            raise AssertionError(content1)
+        # ===========角色名没有展示：可能是账号被提前删了===============
+        elif username != first_name:
+            raise AssertionError(content2)
+        #============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
-        # ===========运行失败：其他一切因素都可能导致===============
+        print('--' * 30)
+        traceback.print_exc()#只记录报错，不跳出
+        raise#跳出，但是没有直接打印错误
+
 
 
 def Sweden_sign_up():
-    global result
-    result=True
     try:
         start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_sign_up").wait(10).click()
         # ===========进入注册界面===============
-        poco("com.qfun.pokio:id/et_email_address").set_text(email_sweden)
+        poco("com.qfun.pokio:id/et_email_address").wait(10).set_text(email_sweden)
         poco("com.qfun.pokio:id/et_pwd").set_text('Qq12345.')
         poco("com.qfun.pokio:id/et_confirm_pwd").set_text('Qq12345.')
         # ===========密码固定‘Qq12345.’===============
@@ -112,7 +110,7 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/et_code").set_text(code_details)
         # ===========填入验证码===============
         poco("com.qfun.pokio:id/cb_terms").click()  # 勾选协议
-        poco("com.qfun.pokio:id/btn_continue").click()
+        poco("com.qfun.pokio:id/tv_commit").click()
         # ===========转入第二界面===============
         poco("com.qfun.pokio:id/tv_country").click()
         poco("com.qfun.pokio:id/et_search").set_text('swe')
@@ -127,7 +125,7 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/et_city").set_text("aidemoli")
         poco("android.widget.ScrollView").swipe([-0.005, -0.8388])
         poco("com.qfun.pokio:id/et_postal_code").wait(4).set_text('1234567890')
-        poco("com.qfun.pokio:id/btn_continues").click()
+        poco("com.qfun.pokio:id/tv_commit").click()
         poco("com.qfun.pokio:id/cb_agree").wait(5).click()
         poco("com.qfun.pokio:id/tv_confirm").click()
         print('--' * 30)
@@ -137,7 +135,7 @@ def Sweden_sign_up():
         # ===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         # ===========跳过导流===============
-        sleep(5)
+        sleep(6)
         while poco("com.qfun.pokio:id/iv_next").exists():
             poco("com.qfun.pokio:id/iv_next").click()
         # ===========通过新手引导===============
@@ -145,60 +143,62 @@ def Sweden_sign_up():
             "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(
             "com.qfun.pokio:id/foot_img_icon").click()
         username = poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
-        # ===========获取username===============
-        if username == 'Username':
-            result=False
-            dingding_Disaster(webhook, content1, user=jianyu, Atall=control)
-            raise AssertionError(content1)
-        #===========角色名没有展示：可能是账号被提前删了===============
-        elif username != 'Tomer':
-            result=False
-            dingding_Disaster(webhook, content2, user=jianyu, Atall=control)
-            raise AssertionError(content2)
-        # ===========断言失败：角色名与创建使用的不同===============
-        else:
+        # ===========进入个人信息获取角色名================
+        if username == 'Tomer':
             print(content4)
             print('--' * 30)
             stop_app("com.qfun.pokio")
             sleep(5)
         # ===========断言成功：角色名与创建使用的相同===============
     except:
-        result = False
-        print('--' * 30)
-        print('运行失败，请检查traceback')
-        dingding_Disaster(webhook, content3, user=jianyu, Atall=control)
-        traceback.print_exc()
+        if poco("com.qfun.pokio:id/tv_user_name").exists():
+            username = poco("com.qfun.pokio:id/tv_user_name").get_text()
+        else:
+            username = None
+        # ===========如果能抓到角色名，断言一下，没有就看报错===============
+        if username == None:
+            pass
+        elif username == 'Username':
+            raise AssertionError(content1)
+        # ===========角色名没有展示：可能是账号被提前删了===============
+        elif username != 'Tomer':
+            raise AssertionError(content2)
+        # ============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
-        # ===========运行失败：其他一切因素都可能导致===============
-
+        print('--' * 30)
+        traceback.print_exc()#只记录报错，不跳出
+        raise#跳出，但是没有直接打印错误
 #===========以上为逻辑层===============
 
 
 @time_consuming
-def sign_up_control_count(method=2):
+def sign_up_control_count():
+    global sign_up_counter
     f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'rb')
     sign_up_counter = pickle.load(f)
     f.close()
     #读取pickle文件中的counter变量值
-    try:
-        if method == 2:
+    Maker_Error=0
+    while Maker_Error<3:
+        try:
             Normol_sign_up()
             Sweden_sign_up()
-        if method == 1:
-            Normol_sign_up()
-        if method == 0:
-            Sweden_sign_up()
-        if result == False:
-            raise AssertionError('连续运行记录中断')
-        sign_up_counter = sign_up_counter + 1
-        print('注册模块已连续成功运行%d次！' % sign_up_counter)
-    except:
-        print('注册模块连续运行%d次后失败了！' % sign_up_counter)
-        sign_up_counter = 0
+            sign_up_counter = sign_up_counter + 1
+            print('注册模块已连续成功运行%d次！' % sign_up_counter)
+        except:
+            print('运行失败，请检查traceback')
+            Maker_Error=Maker_Error+1
+            print('连续失败：',Maker_Error)
+        else:
+            if sign_up_counter % 100==0:
+                dingding_Disaster(webhook,'恭喜，注册模块已连续成功运行%d次！！！' % sign_up_counter, user=None, Atall=False)
+            break
     else:
-        if sign_up_counter % 100==0:
-            dingding_Disaster(webhook,'恭喜，注册模块已连续成功运行%d次！！！' % sign_up_counter, user=None, Atall=False)
+        print('注册模块连续运行%d次后失败了！' % sign_up_counter)
+        sign_up_counter=0
+        dingding_Disaster(webhook, '连续运行失败3次，需要检查注册模块！', user=jianyu, Atall=False)
+        return
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度

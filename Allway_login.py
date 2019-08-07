@@ -1,6 +1,7 @@
 # -*- encoding=utf8 -*-
 __author__ = "Morrow"
 
+import traceback
 import pickle
 from Requests_pokio import *
 from decorator import *
@@ -15,7 +16,6 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 
 def Email_login():
     try:
-        start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_email_address").click()
         poco("com.qfun.pokio:id/et_email").set_text(Email_Account)
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
@@ -32,16 +32,18 @@ def Email_login():
         #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            stop_app("com.qfun.pokio")
+            poco("com.qfun.pokio:id/iv_title_left").click()
+            poco(text="Settings").click()
+            poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
+            poco("com.qfun.pokio:id/tv_logout").click()
+            poco("com.qfun.pokio:id/btn_select_exit").click()
             #===========成功后直接登出===============
         else:
-            print("测试点：登陆账号数据验证失败")
-            print('--'*30)
-            dingding_Disaster(webhook,content1,user=jianyu,Atall=control)
+            raise AssertionError("测试点：登陆账号数据验证失败")
             # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
-        dingding_Disaster(webhook,content2,user=jianyu,Atall=control)
+        traceback.print_exc()
         raise
         #===========try语句运行失败，需要用raise抛出异常===============
     sleep(5)
@@ -49,7 +51,6 @@ def Email_login():
         
 def Mobile_login():
     try:
-        start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_mobile_number").click()
         poco("com.qfun.pokio:id/et_mobile_number").set_text(Mobile_Account)
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
@@ -66,16 +67,18 @@ def Mobile_login():
         #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
             print('--'*30)
-            stop_app("com.qfun.pokio")
+            poco("com.qfun.pokio:id/iv_title_left").click()
+            poco(text="Settings").click()
+            poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
+            poco("com.qfun.pokio:id/tv_logout").click()
+            poco("com.qfun.pokio:id/btn_select_exit").click()
             #===========成功后直接登出===============
         else:
-            print("测试点：登陆账号数据验证失败")
-            print('--'*30)
-            dingding_Disaster(webhook,content3,user=jianyu,Atall=control)
+            raise AssertionError("测试点：登陆账号数据验证失败")
             # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
-        dingding_Disaster(webhook,content4,user=jianyu,Atall=control)
+        traceback.print_exc()
         raise
         #===========try语句运行失败，需要用raise抛出异常===============
     sleep(5)
@@ -83,7 +86,6 @@ def Mobile_login():
         
 def Facebook_login():
     try:
-        start_app("com.qfun.pokio")
         poco("com.qfun.pokio:id/tv_facebook_login").click()
         poco("m_login_email").wait(10).set_text(Facebook_Account)
         poco("m_login_password").set_text('a8164591')
@@ -99,18 +101,19 @@ def Facebook_login():
         if Nickname==Namecheck_Facebook:
         #===========断言：获取的昵称==给定的昵称===============
             print("测试点：登陆账号数据验证成功")
-            print('--'*30)
-            print('--'*30)
-            stop_app("com.qfun.pokio")
+            print('--' * 30)
+            poco("com.qfun.pokio:id/iv_title_left").click()
+            poco(text="Settings").click()
+            poco("android.widget.ScrollView").swipe([0.0236, -0.2116])
+            poco("com.qfun.pokio:id/tv_logout").click()
+            poco("com.qfun.pokio:id/btn_select_exit").click()
             #===========成功后直接登出===============
         else:
-            print("测试点：登陆账号数据验证失败")
-            print('--'*30)
-            dingding_Disaster(webhook,content5,user=jianyu,Atall=control)
+            raise AssertionError("测试点：登陆账号数据验证失败")
             # ===========断言失败则推送钉钉===============
     except:
         print('\n'*5+'===========   运行失败     ===============')
-        dingding_Disaster(webhook,content6,user=jianyu,Atall=control)
+        traceback.print_exc()
         raise
         #===========try语句运行失败，需要用raise抛出异常===============
     sleep(5)
@@ -118,30 +121,36 @@ def Facebook_login():
 
 
 @time_consuming
-def login_control_count(method=3):
+def login_control_count():
+    global login_counter
     f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'rb')
     login_counter = pickle.load(f)
     f.close()
     #读取pickle文件中的counter变量值
-    try:
-        if method == 3:
+    Maker_Error=0
+    while Maker_Error<3:
+        try:
+            start_app("com.qfun.pokio")
             Email_login()
             Mobile_login()
             Facebook_login()
-        if method == 2:
-            Email_login()
-        if method == 1:
-            Mobile_login()
-        if method == 0:
-            Facebook_login()
-        login_counter = login_counter + 1
-        print('登陆模块已连续成功运行%d次！' % login_counter)
-    except:
-        dingding_Disaster(webhook,'很遗憾，登陆模块在连续运行%d次时出错了' % login_counter, user=None, Atall=False)
-        login_counter = 0
+            stop_app("com.qfun.pokio")
+            login_counter = login_counter + 1
+            print('登陆模块已连续成功运行%d次！' % login_counter)
+        except:
+            Maker_Error=Maker_Error+1
+            print('连续失败：', Maker_Error)
+            login_counter = 0
+            stop_app("com.qfun.pokio")
+        else:
+            if login_counter % 100==0:
+                dingding_Disaster(webhook,'登陆模块已连续成功运行%d次！！！' % login_counter, user=None, Atall=False)
+            break
     else:
-        if login_counter % 100==0:
-            dingding_Disaster(webhook,'登陆模块已连续成功运行%d次！！！' % login_counter, user=None, Atall=False)
+        print('登陆模块连续运行%d次后失败了！' % login_counter)
+        login_counter=0
+        dingding_Disaster(webhook, '连续运行失败3次，需要检查注登陆模块！', user=jianyu, Atall=False)
+        return
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
