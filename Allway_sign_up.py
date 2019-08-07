@@ -202,7 +202,7 @@ def sign_up_control_count():
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
-    f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'wb')
+    f = open('D:\Pokio_airtest_monitoring\pickle.txt', 'wb')
     pickle.dump(sign_up_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
