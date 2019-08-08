@@ -117,6 +117,10 @@ def Facebook_login():
         raise
         #===========try语句运行失败，需要用raise抛出异常===============
     sleep(5)
+
+def skip_fingerprint():
+    pass
+
 #===========以上为逻辑层===============
 
 

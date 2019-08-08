@@ -52,10 +52,8 @@ def Normol_sign_up():
         poco("com.qfun.pokio:id/tv_commit").click() 
         poco("com.qfun.pokio:id/cb_agree").wait(5).click()
         poco("com.qfun.pokio:id/tv_confirm").click()
-        print('--'*30)
         print("注册使用昵称：",first_name)
         print("注册完成，等待验证")
-        print('--'*30)
         #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         #===========跳过导流===============
@@ -128,10 +126,8 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/tv_commit").click()
         poco("com.qfun.pokio:id/cb_agree").wait(5).click()
         poco("com.qfun.pokio:id/tv_confirm").click()
-        print('--' * 30)
         print("注册使用昵称：", 'Tomer')
         print("注册完成，等待验证")
-        print('--' * 30)
         # ===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         # ===========跳过导流===============
@@ -146,7 +142,6 @@ def Sweden_sign_up():
         # ===========进入个人信息获取角色名================
         if username == 'Tomer':
             print(content4)
-            print('--' * 30)
             stop_app("com.qfun.pokio")
             sleep(5)
         # ===========断言成功：角色名与创建使用的相同===============
@@ -166,7 +161,6 @@ def Sweden_sign_up():
         # ============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
-        print('--' * 30)
         traceback.print_exc()#只记录报错，不跳出
         raise#跳出，但是没有直接打印错误
 #===========以上为逻辑层===============
@@ -202,7 +196,7 @@ def sign_up_control_count():
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
-    f = open('D:\Pokio_airtest_monitoring\pickle.txt', 'wb')
+    f = open('D:\GitHub\Pokio_airtest_monitoring\pickle.txt', 'wb')
     pickle.dump(sign_up_counter, f)
     f.close()
     #保存counter最终的值保存至pickle
