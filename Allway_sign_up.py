@@ -61,6 +61,13 @@ def Normol_sign_up():
         while poco("com.qfun.pokio:id/iv_next").exists():
             poco("com.qfun.pokio:id/iv_next").click()
         #===========通过新手引导===============
+        while poco("com.qfun.pokio:id/iv_content").exists():
+            poco("com.qfun.pokio:id/iv_close_ad").click()
+        #===========如果存在登陆弹框，跳过===============
+        while poco("com.qfun.pokio:id/checkbox").exists():
+            poco("com.qfun.pokio:id/checkbox").click()
+            poco("com.qfun.pokio:id/tv_cancel").click()
+        #===========如果存在指纹绑定，跳过===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
         username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
         #===========进入个人信息获取角色名================
@@ -135,6 +142,13 @@ def Sweden_sign_up():
         while poco("com.qfun.pokio:id/iv_next").exists():
             poco("com.qfun.pokio:id/iv_next").click()
         # ===========通过新手引导===============
+        while poco("com.qfun.pokio:id/iv_content").exists():
+            poco("com.qfun.pokio:id/iv_close_ad").click()
+        #===========如果存在登陆弹框，跳过===============
+        while poco("com.qfun.pokio:id/checkbox").exists():
+            poco("com.qfun.pokio:id/checkbox").click()
+            poco("com.qfun.pokio:id/tv_cancel").click()
+        #===========如果存在指纹绑定，跳过===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child(
             "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(
             "com.qfun.pokio:id/foot_img_icon").click()

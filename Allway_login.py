@@ -21,6 +21,13 @@ def Email_login():
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
         poco("com.qfun.pokio:id/btn_login").click()
         #===========登陆账号密码固定===============
+        while poco("com.qfun.pokio:id/iv_content").exists():
+            poco("com.qfun.pokio:id/iv_close_ad").click()
+        #===========如果存在登陆弹框，跳过===============
+        while poco("com.qfun.pokio:id/checkbox").exists():
+            poco("com.qfun.pokio:id/checkbox").click()
+            poco("com.qfun.pokio:id/tv_cancel").click()
+        #===========如果存在指纹绑定，跳过===============
         poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").wait(20).click()
         poco("com.qfun.pokio:id/iv_user_icon").click()
         Nickname=poco("com.qfun.pokio:id/tv_user_nickname").get_text()
@@ -56,6 +63,13 @@ def Mobile_login():
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
         poco("com.qfun.pokio:id/btn_login").click()
         #===========登陆账号密码固定===============
+        while poco("com.qfun.pokio:id/iv_content").exists():
+            poco("com.qfun.pokio:id/iv_close_ad").click()
+        #===========如果存在登陆弹框，跳过===============
+        while poco("com.qfun.pokio:id/checkbox").exists():
+            poco("com.qfun.pokio:id/checkbox").click()
+            poco("com.qfun.pokio:id/tv_cancel").click()
+        #===========如果存在指纹绑定，跳过===============
         poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").wait(20).click()
         poco("com.qfun.pokio:id/iv_user_icon").click()
         Nickname=poco("com.qfun.pokio:id/tv_user_nickname").get_text()
@@ -91,6 +105,13 @@ def Facebook_login():
         poco("m_login_password").set_text('a8164591')
         poco("u_0_4").click()
         #===========登陆账号密码固定===============
+        while poco("com.qfun.pokio:id/iv_content").exists():
+            poco("com.qfun.pokio:id/iv_close_ad").click()
+        #===========如果存在登陆弹框，跳过===============
+        while poco("com.qfun.pokio:id/checkbox").exists():
+            poco("com.qfun.pokio:id/checkbox").click()
+            poco("com.qfun.pokio:id/tv_cancel").click()
+        #===========如果存在指纹绑定，跳过===============
         poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").wait(20).click()
         poco("com.qfun.pokio:id/iv_user_icon").click()
         Nickname=poco("com.qfun.pokio:id/tv_user_nickname").get_text()
@@ -153,7 +174,7 @@ def login_control_count():
     else:
         print('登陆模块连续运行%d次后失败了！' % login_counter)
         login_counter=0
-        dingding_Disaster(webhook, '连续运行失败3次，需要检查注登陆模块！', user=jianyu, Atall=False)
+        dingding_Disaster(webhook, '连续运行失败3次，需要检查登陆！', user=jianyu, Atall=False)
         return
     #运行成功count+1
     #运行失败count重置为0
