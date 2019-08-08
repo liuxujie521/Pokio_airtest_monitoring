@@ -5,9 +5,9 @@ __author__ = "Morrow"
 import json
 import pickle
 import requests
-# from airtest.core.api import *
-# from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+from airtest.core.api import *
+from poco.drivers.android.uiautomation import AndroidUiautomationPoco
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 
 
 # https://app-test2.pokio.com/pybigshare/login/captcha/?email=pokioairtest@yeah.net
@@ -35,9 +35,12 @@ def captcha():
     return code_details
 
 
-sign_up_counter = 0
-login_counter = 0
-f = open('pickle.txt', 'wb')
-pickle.dump(sign_up_counter, f)
-f.close()
-#手动重置计数器
+# sign_up_counter = 0
+# login_counter = 0
+# f = open('pickle.txt', 'wb')
+# pickle.dump(sign_up_counter, f)
+# f.close()
+# #手动重置计数器
+
+while poco("com.qfun.pokio:id/iv_content").exists():
+    poco("com.qfun.pokio:id/iv_close_ad").click()

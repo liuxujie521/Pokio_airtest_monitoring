@@ -131,16 +131,18 @@ def Facebook_login():
     sleep(5)
 
 def skip_fingerprint():
-    while poco("com.qfun.pokio:id/checkbox").exists():
+    while poco("com.qfun.pokio:id/checkbox").wait(3).exists():
         poco("com.qfun.pokio:id/checkbox").click()
         poco("com.qfun.pokio:id/tv_cancel").click()
 # ===========如果存在指纹绑定，跳过===============
 def skip_pop_up():
-    while poco("com.qfun.pokio:id/iv_content").exists():
+    sleep(2)
+    while poco("com.qfun.pokio:id/iv_content").wait(3).exists():
         poco("com.qfun.pokio:id/iv_close_ad").click()
 # ===========如果存在登陆弹框，跳过===============
 def skip_guide():
-    while poco("com.qfun.pokio:id/iv_next").exists():
+    sleep(2)
+    while poco("com.qfun.pokio:id/iv_next").wait(3).exists():
         poco("com.qfun.pokio:id/iv_next").click()
 #===========以上为逻辑层===============
 
@@ -205,14 +207,13 @@ if __name__ == '__main__' :
     #该推送为测试群，request模块记录了正式群的钉钉url
 # ===========以上为本地参数===============
 
-login_control_count()
+# login_control_count()
 '''
 运行开关
 默认==method=3跑所有登陆
 2，1，0分别对应邮箱，手机，facebook登陆
 '''
 #===========以上为运行脚本===============
-# while True:
-#     login_control_count()
-#     sleep(20)
+while True:
+    login_control_count()
 #===========循环验证，上线后屏蔽===============
