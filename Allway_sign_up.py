@@ -3,6 +3,7 @@ __author__ = "Morrow"
 
 import traceback
 import pickle
+import Allway_login
 from Requests_pokio import *
 from decorator import *
 from airtest.core.api import *
@@ -56,17 +57,13 @@ def Normol_sign_up():
         print("注册完成，等待验证")
         #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
-        #===========跳过导流===============
         sleep(6)
-        while poco("com.qfun.pokio:id/iv_next").exists():
-            poco("com.qfun.pokio:id/iv_next").click()
+        #===========跳过导流===============
+        Allway_login.skip_guide()
         #===========通过新手引导===============
-        while poco("com.qfun.pokio:id/iv_content").exists():
-            poco("com.qfun.pokio:id/iv_close_ad").click()
+        Allway_login.skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        while poco("com.qfun.pokio:id/checkbox").exists():
-            poco("com.qfun.pokio:id/checkbox").click()
-            poco("com.qfun.pokio:id/tv_cancel").click()
+        Allway_login.skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
         username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
@@ -135,19 +132,15 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/tv_confirm").click()
         print("注册使用昵称：", 'Tomer')
         print("注册完成，等待验证")
-        # ===========注册完成===============
+        #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
-        # ===========跳过导流===============
         sleep(6)
-        while poco("com.qfun.pokio:id/iv_next").exists():
-            poco("com.qfun.pokio:id/iv_next").click()
-        # ===========通过新手引导===============
-        while poco("com.qfun.pokio:id/iv_content").exists():
-            poco("com.qfun.pokio:id/iv_close_ad").click()
+        #===========跳过导流===============
+        Allway_login.skip_guide()
+        #===========通过新手引导===============
+        Allway_login.skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        while poco("com.qfun.pokio:id/checkbox").exists():
-            poco("com.qfun.pokio:id/checkbox").click()
-            poco("com.qfun.pokio:id/tv_cancel").click()
+        Allway_login.skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child(
             "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(

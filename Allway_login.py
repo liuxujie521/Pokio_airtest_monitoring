@@ -21,12 +21,9 @@ def Email_login():
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
         poco("com.qfun.pokio:id/btn_login").click()
         #===========登陆账号密码固定===============
-        while poco("com.qfun.pokio:id/iv_content").exists():
-            poco("com.qfun.pokio:id/iv_close_ad").click()
+        skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        while poco("com.qfun.pokio:id/checkbox").exists():
-            poco("com.qfun.pokio:id/checkbox").click()
-            poco("com.qfun.pokio:id/tv_cancel").click()
+        skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").wait(20).click()
         poco("com.qfun.pokio:id/iv_user_icon").click()
@@ -63,12 +60,9 @@ def Mobile_login():
         poco("com.qfun.pokio:id/et_password").set_text('Qq12345.')
         poco("com.qfun.pokio:id/btn_login").click()
         #===========登陆账号密码固定===============
-        while poco("com.qfun.pokio:id/iv_content").exists():
-            poco("com.qfun.pokio:id/iv_close_ad").click()
+        skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        while poco("com.qfun.pokio:id/checkbox").exists():
-            poco("com.qfun.pokio:id/checkbox").click()
-            poco("com.qfun.pokio:id/tv_cancel").click()
+        skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").wait(20).click()
         poco("com.qfun.pokio:id/iv_user_icon").click()
@@ -105,12 +99,9 @@ def Facebook_login():
         poco("m_login_password").set_text('a8164591')
         poco("u_0_4").click()
         #===========登陆账号密码固定===============
-        while poco("com.qfun.pokio:id/iv_content").exists():
-            poco("com.qfun.pokio:id/iv_close_ad").click()
+        skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        while poco("com.qfun.pokio:id/checkbox").exists():
-            poco("com.qfun.pokio:id/checkbox").click()
-            poco("com.qfun.pokio:id/tv_cancel").click()
+        skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").wait(20).click()
         poco("com.qfun.pokio:id/iv_user_icon").click()
@@ -140,8 +131,17 @@ def Facebook_login():
     sleep(5)
 
 def skip_fingerprint():
-    pass
-
+    while poco("com.qfun.pokio:id/checkbox").exists():
+        poco("com.qfun.pokio:id/checkbox").click()
+        poco("com.qfun.pokio:id/tv_cancel").click()
+# ===========如果存在指纹绑定，跳过===============
+def skip_pop_up():
+    while poco("com.qfun.pokio:id/iv_content").exists():
+        poco("com.qfun.pokio:id/iv_close_ad").click()
+# ===========如果存在登陆弹框，跳过===============
+def skip_guide():
+    while poco("com.qfun.pokio:id/iv_next").exists():
+        poco("com.qfun.pokio:id/iv_next").click()
 #===========以上为逻辑层===============
 
 
