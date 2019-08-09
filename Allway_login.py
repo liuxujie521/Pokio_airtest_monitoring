@@ -3,6 +3,7 @@ __author__ = "Morrow"
 
 import traceback
 import pickle
+from skip_error import *
 from Requests_pokio import *
 from decorator import *
 from airtest.core.api import *
@@ -130,20 +131,6 @@ def Facebook_login():
         #===========try语句运行失败，需要用raise抛出异常===============
     sleep(5)
 
-def skip_fingerprint():
-    while poco("com.qfun.pokio:id/checkbox").wait(3).exists():
-        poco("com.qfun.pokio:id/checkbox").click()
-        poco("com.qfun.pokio:id/tv_cancel").click()
-# ===========如果存在指纹绑定，跳过===============
-def skip_pop_up():
-    sleep(2)
-    while poco("com.qfun.pokio:id/iv_content").wait(3).exists():
-        poco("com.qfun.pokio:id/iv_close_ad").click()
-# ===========如果存在登陆弹框，跳过===============
-def skip_guide():
-    sleep(2)
-    while poco("com.qfun.pokio:id/iv_next").wait(3).exists():
-        poco("com.qfun.pokio:id/iv_next").click()
 #===========以上为逻辑层===============
 
 
@@ -167,7 +154,6 @@ def login_control_count():
         except:
             Maker_Error=Maker_Error+1
             print('连续失败：', Maker_Error)
-            login_counter = 0
             stop_app("com.qfun.pokio")
         else:
             if login_counter % 100==0:
@@ -177,7 +163,6 @@ def login_control_count():
         print('登陆模块连续运行%d次后失败了！' % login_counter)
         login_counter=0
         dingding_Disaster(webhook, '连续运行失败3次，需要检查登陆！', user=jianyu, Atall=False)
-        return
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
@@ -207,13 +192,13 @@ if __name__ == '__main__' :
     #该推送为测试群，request模块记录了正式群的钉钉url
 # ===========以上为本地参数===============
 
-# login_control_count()
+login_control_count()
 '''
 运行开关
 默认==method=3跑所有登陆
 2，1，0分别对应邮箱，手机，facebook登陆
 '''
 #===========以上为运行脚本===============
-while True:
-    login_control_count()
+# while True:
+#     login_control_count()
 #===========循环验证，上线后屏蔽===============

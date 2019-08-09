@@ -3,7 +3,7 @@ __author__ = "Morrow"
 
 import traceback
 import pickle
-import Allway_login
+from skip_error import *
 from Requests_pokio import *
 from decorator import *
 from airtest.core.api import *
@@ -33,6 +33,7 @@ def Normol_sign_up():
         poco("com.qfun.pokio:id/tv_commit").click()
         #===========转入第二界面===============
         poco("com.qfun.pokio:id/tv_country").click()
+        sleep(1)
         poco("com.qfun.pokio:id/et_search").set_text('Ice')
         poco(text="Iceland").click()
         #===========国家固定‘Iceland’===============
@@ -57,13 +58,12 @@ def Normol_sign_up():
         print("注册完成，等待验证")
         #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
-        sleep(6)
         #===========跳过导流===============
-        Allway_login.skip_guide()
-        #===========通过新手引导===============
-        Allway_login.skip_pop_up()
+        skip_guide()
+        #===========过新手引导===============
+        skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        Allway_login.skip_fingerprint()
+        skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
         username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
@@ -77,17 +77,13 @@ def Normol_sign_up():
     except:
         if poco("com.qfun.pokio:id/tv_user_name").exists():
             username=poco("com.qfun.pokio:id/tv_user_name").get_text()
-        else:
-            username=None
-        # ===========如果能抓到角色名，断言一下，没有就看报错===============
-        if username == None:
-            pass
-        elif username == 'Username':
-            raise AssertionError(content1)
-        # ===========角色名没有展示：可能是账号被提前删了===============
-        elif username != first_name:
-            raise AssertionError(content2)
-        #============错误点：角色名与创建使用的不同===============
+            # ===========如果能抓到角色名，断言一下，没有就看报错===============
+            if username == 'Username':
+                raise AssertionError(content1)
+            # ===========角色名没有展示：可能是账号被提前删了===============
+            elif username != first_name:
+                raise AssertionError(content2)
+            #============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
         print('--' * 30)
@@ -115,6 +111,7 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/tv_commit").click()
         # ===========转入第二界面===============
         poco("com.qfun.pokio:id/tv_country").click()
+        sleep(1)
         poco("com.qfun.pokio:id/et_search").set_text('swe')
         poco(text="Sweden").click()
         poco("com.qfun.pokio:id/tv_confirm").click()
@@ -134,13 +131,12 @@ def Sweden_sign_up():
         print("注册完成，等待验证")
         #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
-        sleep(6)
         #===========跳过导流===============
-        Allway_login.skip_guide()
+        skip_guide()
         #===========通过新手引导===============
-        Allway_login.skip_pop_up()
+        skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        Allway_login.skip_fingerprint()
+        skip_fingerprint()
         #===========如果存在指纹绑定，跳过===============
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child(
             "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(
@@ -155,17 +151,13 @@ def Sweden_sign_up():
     except:
         if poco("com.qfun.pokio:id/tv_user_name").exists():
             username = poco("com.qfun.pokio:id/tv_user_name").get_text()
-        else:
-            username = None
-        # ===========如果能抓到角色名，断言一下，没有就看报错===============
-        if username == None:
-            pass
-        elif username == 'Username':
-            raise AssertionError(content1)
-        # ===========角色名没有展示：可能是账号被提前删了===============
-        elif username != 'Tomer':
-            raise AssertionError(content2)
-        # ============错误点：角色名与创建使用的不同===============
+            # ===========如果能抓到角色名，断言一下，没有就看报错===============
+            if username == 'Username':
+                raise AssertionError(content1)
+            # ===========角色名没有展示：可能是账号被提前删了===============
+            elif username != 'Tomer':
+                raise AssertionError(content2)
+            # ============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
         traceback.print_exc()#只记录报错，不跳出
@@ -188,7 +180,6 @@ def sign_up_control_count():
             sign_up_counter = sign_up_counter + 1
             print('注册模块已连续成功运行%d次！' % sign_up_counter)
         except:
-            print('运行失败，请检查traceback')
             Maker_Error=Maker_Error+1
             print('连续失败：',Maker_Error)
         else:
@@ -198,8 +189,7 @@ def sign_up_control_count():
     else:
         print('注册模块连续运行%d次后失败了！' % sign_up_counter)
         sign_up_counter=0
-        dingding_Disaster(webhook, '连续运行失败3次，需要检查注册模块！', user=jianyu, Atall=False)
-        return
+        dingding_Disaster(webhook,'连续运行失败3次，需要检查注册模块！',user=jianyu, Atall=False)
     #运行成功count+1
     #运行失败count重置为0
     #设置count为每N次推送一次进度
