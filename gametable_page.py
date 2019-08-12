@@ -1,30 +1,37 @@
 # -*- encoding=utf8 -*-
 __author__ = "zhouming"
 
-import time
+from Requests_pokio import *
 from airtest.core.api import *
-from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+from poco.drivers.android.uiautomation import AndroidUiautomationPoco   #调用实例化
+from poco.drivers.std import StdPoco    #调用实例化
 
-from poco.drivers.std import StdPoco
+import time
 
 class GameOperationMethod(object):
     """游戏内操作的所有方法"""
     def __init__(self,pocos,poco):
         self.pocos = pocos
         self.poco = poco
-
+        self.webhook="https://oapi.dingtalk.com/robot/send?access_token=74d0a1bdec607b9f7e302f3d8654c5e88bca602c31e72584da9e918ba40a2e7b"
+        self.zm='18818778156'
     def _Entrance_table(self, tablesna):
         """指定入桌"""
-        for i in range(3):
-            if self.poco("com.qfun.pokio:id/main_footbar_lobbydbtn").wait(2).exists():
-                print("首页面找到元素")
-                break  # 找到了就跳出循环
-            else:
-                keyevent("BACK")  # 使页面回来首页
-        self.poco("com.qfun.pokio:id/main_footbar_lobbydbtn").wait(2).click()  # Pyay页面
-        self.poco(text=tablesna).click()  # 点击指定的牌桌
-
+        try:
+            for i in range(3):
+                if self.poco("com.qfun.pokio:id/main_footbar_lobbydbtn").wait(2).exists():## 判断是否Play页面
+                    print("首页面找到Play元素")
+                    break  # 找到了就跳出循环
+                else:
+                    keyevent("BACK")  # 使页面回来首页
+            self.poco("com.qfun.pokio:id/main_footbar_lobbydbtn").wait(2).click()  # Play页面
+            self.poco(text="Ring").wait(2).click()  # 确认是在Ring现金桌操作
+            sleep(0.2)
+            self.poco(text=tablesna).click()  # 点击指定的牌桌
+            print("指定入桌验证成功")
+        except:
+            print("入桌异常日志记录")
+            dingding_Disaster(self.webhook, "入桌异常告警", user=self.zm, Atall=False)
 
     def _Game_table_check(self):
         """平跟"""
@@ -39,7 +46,8 @@ class GameOperationMethod(object):
                 self.pocos("btn_look").wait(1).click()
                 print("btnlook")
         except:
-            print("平跟异常日志写入")
+            print("平跟异常日志记录")
+            dingding_Disaster(self.webhook, "平跟异常告警", user=self.zm, Atall=False)
 
     def _Game_table_raise(self):
         """加注"""
@@ -49,7 +57,8 @@ class GameOperationMethod(object):
             self.pocos("btn_sure").click()        #DONE   确认
             print("加注全推")
         except:
-            print("加注异常日志写入")
+            print("加注异常日志记录")
+            dingding_Disaster(self.webhook, "加注异常告警", user=self.zm, Atall=False)
 
     def _Game_table_fold(self):
         """弃牌"""
@@ -72,21 +81,26 @@ class GameOperationMethod(object):
                 return True
             else:
                 print("坐下失败")
+                dingding_Disaster(self.webhook, "桌内坐下失败告警", user=self.zm, Atall=False)
                 return True
         except:
-            print("桌内坐下来异常日志写入")
+            print("桌内坐下来异常日志记录")
+            dingding_Disaster(self.webhook, "桌内坐下异常告警", user=self.zm, Atall=False)
             return True
-
     def _Game_table_observe(self):
         """桌内站起"""
         try:
-            sleep(5)
-            self.pocos("lbl_daytime").click()
+            sleep(2)
+            self.pocos("lbl_daytime").wait(2).click()
             self.pocos("bnt_menu").wait(15).click('center')
             lenns=len(self.pocos("<LayerColor | Tag = -1>").child("Button"))
             self.pocos("<LayerColor | Tag = -1>").child("Button")[0].click('center')
+            if self.pocos("dialog_bg_9scale").wait(3).exists():
+                print("Tips弹窗")
+                self.pocos("btn_ok").wait(2).click()  # Yes
         except:
-            print("桌内站起异常日志写入")
+            print("桌内站起异常日志记录")
+            dingding_Disaster(self.webhook, "桌内站起异常告警", user=self.zm, Atall=False)
 
     def _Game_table_leave(self):
         """退出牌局"""
@@ -95,9 +109,9 @@ class GameOperationMethod(object):
             self.pocos("bnt_menu").wait(15).click('center')
             lenns=len(self.pocos("<LayerColor | Tag = -1>").child("Button"))
             self.pocos("<LayerColor | Tag = -1>").child("Button")[lenns-1].click('center')
-            self.pocos("dialog_bg_9scale").child("btn_ok").click()
         except:
-            print("退出牌局异常日志写入")
+            print("退出牌局异常日志记录")
+            dingding_Disaster(self.webhook, "退出牌局异常告警", user=self.zm, Atall=False)
 
     def _Game_table_tablesettings(self):
         """解散牌局"""
@@ -108,9 +122,10 @@ class GameOperationMethod(object):
             self.pocos("<LayerColor | Tag = -1>").child("Button")[0].click('center')
             self.pocos("btn_end").wait(3).click('center')
             self.pocos("dialog_bg_9scale").child("btn_ok").click()
-            print("解散牌桌成功")
+            print("解散现金牌桌成功")
         except:
-            print("解散牌局异常日志写入")
+            print("解散现金牌桌异常日志记录")
+            dingding_Disaster(self.webhook, "解散现金牌桌异常告警", user=self.zm, Atall=False)
 
     def Wallet_string_processing(self,walletstr):
         """钱包字符串转换数值类型处理方法"""
@@ -124,13 +139,17 @@ class GameOperationMethod(object):
 
     def _Game_table_walletget(self):
         """桌内钱包金额获取"""
-        if  self.pocos("panel_wallet_close").wait(5).exists():#如果钱包隐藏
-            self.pocos("img_wallet_bg").click("center")  #显示钱包余额
-        welletstr=self.pocos("<Layer | Tag = -1>").child("<Layer | Tag = -1>")[0].offspring("lbl_wallet").get_text()
-        welletfloat = self.Wallet_string_processing(welletstr)     #str类型转换f
-        print("welletfloat:",welletfloat)
-        return welletfloat
-
+        try:
+            sleep(0.5)
+            if  self.pocos("panel_wallet_close").wait(5).exists():#如果钱包隐藏
+                self.pocos("img_wallet_bg").click("center")  #显示钱包余额
+            welletstr=self.pocos("<Layer | Tag = -1>").child("<Layer | Tag = -1>")[0].offspring("lbl_wallet").get_text()
+            welletfloat = self.Wallet_string_processing(welletstr)     #str类型转换f
+            print("welletfloat:",welletfloat)
+            return welletfloat
+        except:
+            print("桌内钱包金额获取异常")
+            return
 
     def _Game_table_chipget(self):
         """桌内当前用户筹码获取"""
@@ -169,32 +188,31 @@ class GameOperationMethod(object):
             "com.qfun.pokio:id/tv_user_name").get_text()  # 玩家2名称
         profit_02 = self.poco("android:id/list").child("android.widget.RelativeLayout")[1].child(
             "com.qfun.pokio:id/tv_profit").get_text()  # 玩家2输赢金额
-        print(type(date))
-        print(date)
+        print("日期：",date,type(date))
         print("==============================================")
-        print(type(tablename))
-        print(tablename)
+        print("桌名：",tablename,type(tablename))
         print("==============================================")
-        print(type(stakes))
-        print(stakes)
+        print("盲注：",stakes,type(stakes))
         print("==============================================")
-        print(type(handsplayed))
-        print(handsplayed)
+        print("牌次：",handsplayed,type(handsplayed))
         print("==============================================")
-        print(type(biggestpot))
-        print(biggestpot)
+        print("奖池：",biggestpot,type(biggestpot))
         print("==============================================")
-        print("username_01",username_01)
-        print("profit_01",profit_01)
-        print("username_01",username_02)
-        print("profit_02",profit_02)
+        print("username_01:::",username_01)
+        print("profit_01:::",profit_01)
+        print("username_01:::",username_02)
+        print("profit_02:::",profit_02)
         #
         return date, tablename, biggestpot, username_01, profit_01, username_02, profit_02
 
     def _Wallet_Netrevenue_dataget(self,clubna):
-        """钱包俱乐部净收益最新数据获取"""
-        if self.poco("com.qfun.pokio:id/main_footbar_cashierbtn").wait(2).exists():
-            print("已经在首页")
+        """
+        钱包俱乐部净收益最新数据获取
+        :param clubna: 俱乐部名称
+        :return:返回收益的时间（time_m）、净收入（revenue）
+        """
+        if self.poco("com.qfun.pokio:id/main_footbar_cashierbtn").wait(2).exists(): #没有在首页，进行返回操作处理
+            print("已经切换到首页")
         else:
             keyevent("BACK")
 
@@ -202,13 +220,15 @@ class GameOperationMethod(object):
         self.poco(text=clubna).wait(2).click()
         sleep(1)
         poco_item = self.poco("com.qfun.pokio:id/lv_club_latest").child("com.qfun.pokio:id/rl_record_item")[0]  # 第一个净收入
-        time_s = poco_item.child("com.qfun.pokio:id/tv_record_time").get_text()  # 获取收入的时间（核对的条件）
-        time_ms = time.strftime(time_s,'%d/%m/%Y %H:%M:%S')
+        time_s = poco_item.child("com.qfun.pokio:id/tv_record_time").wait(2).get_text()  # 获取收入的时间（核对的条件）
+        revenue = poco_item.offspring("com.qfun.pokio:id/tv_club_revenue").wait(1).get_text()  # 获取俱乐部收入（抽水的核对）
+        print("获取收入的最新时间time_s",time_s)
+        time_ms = time.strptime(time_s,'%d/%m/%Y %H:%M:%S') #分解成元组
+        print("time_ms:",time_ms)
         time_m = time.strftime('%d/%m/%Y %H:%M',time_ms)  #去掉秒精度
-
-        revenue = poco_item.offspring("com.qfun.pokio:id/tv_club_revenue").get_text()  # 获取俱乐部收入（抽水的核对）
-        print(time_m)
-        print("ttt:", revenue)
+        print("收益time：：",time_m)
+        print("收益Rake::", revenue)
+        keyevent("BACK")    #返回到主页
         return time_m, revenue  # r返回时间与净收入
 
 #验证流程操作
@@ -216,28 +236,6 @@ class GameOperationMethod(object):
 # walletago=  _Game_table_walletget()   #坐前余额获取
 # #坐下来，
 # walletlater=  _Game_table_walletget()  #坐下后余额获取
-
-#============================================================
-# 进桌
-
-# 退出牌桌
-# _Game_table_leave()
-# # 解散牌桌
-# _Game_table_tablesettings()
-# # 坐下来
-# _Game_table_sitdown()
-# # 站起来
-# _Game_table_observe()
-# # 平跟
-# _Game_table_check()
-# # 加注
-# _Game_table_raise()
-# # 弃牌
-# _Game_table_fold()
-# 桌内钱包金额获取
-# _Game_table_walletget()
-# 桌内筹码获取
-# _Game_table_chipget()
 
 #=========算法调试========================
 # wallet11=_Game_table_walletget()    #未坐下前获取钱包值

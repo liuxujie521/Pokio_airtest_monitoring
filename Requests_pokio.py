@@ -11,6 +11,14 @@ import datetime
 import requests
 
 def dingding_Disaster(webhook,content,user=None,Atall=True):
+    """
+    钉钉异常告警
+    :param webhook: 钉钉组中创建机器人的时候给出的webhook（API地址）
+    :param content: 告警的内容
+    :param user: 抄送@的人，可以指定谁
+    :param Atall:True是@所有人，有指定用户也会@所有人、False不@人，但是有指定用户会@指定用户
+    :return:
+    """
     # 钉钉组中创建机器人的时候给出的webhook
     # 告警测试
     # 测试推送url: https://oapi.dingtalk.com/robot/send?access_token=2ee4f0ee8a67ede67d75488aa2dff98a5ef827b1e76d20bc463e8836584ae0d4
