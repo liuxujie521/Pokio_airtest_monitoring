@@ -71,31 +71,38 @@ def Normol_sign_up():
         #===========过新手引导===============
         skip_error.skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
-        username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
-        #===========进入个人信息获取角色名================
-        end_time=time.time()
-        check_time=start_time-end_time
-        print('注册时间成功到点击username时间为：',check_time)
+        end_time = time.time()
+        check_time = round(end_time - start_time,2)
+        print('注册时间成功到点击username时间为：', check_time)
         if check_time < 60:
+            poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child(
+                "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(
+                "com.qfun.pokio:id/foot_img_icon").click()
+            sleep(7)
+            username = poco("com.qfun.pokio:id/tv_user_name").get_text()
+            # ===========进入个人信息获取角色名================
             if username == first_name:
                 print(content4)
                 stop_app("com.qfun.pokio")
                 sleep(5)
-        #===========断言成功：角色名与创建使用的相同===============
+            elif username == 'Username':
+                stop_app("com.qfun.pokio")
+                raise AssertionError(content1)
+            # ===========角色名没有展示：可能是账号被提前删了===============
+            elif username != first_name:
+                stop_app("com.qfun.pokio")
+                raise AssertionError(content2)
+            #============错误点：角色名与创建使用的不同===============
+            else:
+                stop_app("com.qfun.pokio")
+                sleep(5)
+                print('--' * 30)
+                raise AssertionError('其他用户名显示错误')
+        # ===========断言成功：角色名与创建使用的相同===============
         else:
             print('由于注册时间过长（超过了60S），本次不继续验证防止触发服务器报错')
             return
     except:
-        if poco("com.qfun.pokio:id/tv_user_name").exists():
-            username=poco("com.qfun.pokio:id/tv_user_name").get_text()
-            # ===========如果能抓到角色名，断言一下，没有就看报错===============
-            if username == 'Username':
-                raise AssertionError(content1)
-            # ===========角色名没有展示：可能是账号被提前删了===============
-            elif username != first_name:
-                raise AssertionError(content2)
-            #============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
         print('--' * 30)
@@ -150,34 +157,39 @@ def Sweden_sign_up():
         #===========通过新手引导===============
         skip_error.skip_pop_up()
         #===========如果存在登陆弹框，跳过===============
-        poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child(
-            "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(
-            "com.qfun.pokio:id/foot_img_icon").click()
-        username = poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
-        # ===========进入个人信息获取角色名================
         end_time=time.time()
-        check_time=start_time-end_time
+        check_time = round(end_time - start_time, 2)
         print('注册时间成功到点击username时间为：',check_time)
         if check_time < 60:
+            poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child(
+                "android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring(
+                "com.qfun.pokio:id/foot_img_icon").click()
+            sleep(7)
+            username = poco("com.qfun.pokio:id/tv_user_name").get_text()
+        # ===========进入个人信息获取角色名================
             if username == 'Tomer':
                 print(content4)
                 stop_app("com.qfun.pokio")
                 sleep(5)
+            elif username == 'Username':
+                stop_app("com.qfun.pokio")
+                raise AssertionError(content1)
+            # ===========角色名没有展示：可能是账号被提前删了===============
+            elif username != 'Tomer':
+                stop_app("com.qfun.pokio")
+                raise AssertionError(content2)
+            # ============错误点：角色名与创建使用的不同===============
+            else:
+                stop_app("com.qfun.pokio")
+                sleep(5)
+                print('--' * 30)
+                raise AssertionError('其他用户名显示错误')
         #===========断言成功：角色名与创建使用的相同===============
         else:
             print('由于注册时间过长（超过了60S），本次不继续验证防止触发服务器报错')
             return
         # ===========断言成功：角色名与创建使用的相同===============
     except:
-        if poco("com.qfun.pokio:id/tv_user_name").exists():
-            username = poco("com.qfun.pokio:id/tv_user_name").get_text()
-            # ===========如果能抓到角色名，断言一下，没有就看报错===============
-            if username == 'Username':
-                raise AssertionError(content1)
-            # ===========角色名没有展示：可能是账号被提前删了===============
-            elif username != 'Tomer':
-                raise AssertionError(content2)
-            # ============错误点：角色名与创建使用的不同===============
         stop_app("com.qfun.pokio")
         sleep(5)
         traceback.print_exc()#只记录报错，不跳出
@@ -244,7 +256,7 @@ if __name__ == '__main__' :
     #request模块记录了所有的钉钉url
 # ===========以上为本地参数===============
 
-    sign_up_control_count()
+# sign_up_control_count()
 '''
 运行开关
 默认==method=2跑所有注册
@@ -252,7 +264,7 @@ if __name__ == '__main__' :
 '''
 #===========以上为运行脚本===============
 
-# while True:
-#     sign_up_control_count()
-#     sleep(20)
+while True:
+    sign_up_control_count()
+    sleep(60)
 #===========循环验证，上线后屏蔽===============
