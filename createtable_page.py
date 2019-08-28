@@ -11,6 +11,7 @@ import time
 #全局初始化
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 dev1 = connect_device("Android://127.0.0.1:5037/3SC5T16B29008638")  # 华为P9
+
 pocos = StdPoco(15004, dev1)
 # dev1 = connect_device("Android://127.0.0.1:5037/3SC5T16B29008638")  # 华为P9
 # dev1 = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO  R15
