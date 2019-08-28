@@ -1,6 +1,7 @@
 # -*- encoding=utf8 -*-
 __author__ = "Morrow"
 
+import time
 import traceback
 import pickle
 import skip_error
@@ -60,6 +61,7 @@ def Normol_sign_up():
         print("注册使用昵称：",first_name)
         print("注册完成，等待验证")
         print("进行弹窗处理")
+        start_time=time.time()
         #===========注册完成===============
         if poco("com.qfun.pokio:id/txt_title_right").wait(15).exists():
             print("等元素处理")
@@ -72,12 +74,18 @@ def Normol_sign_up():
         poco("android:id/content").child("android.widget.FrameLayout").child("android.widget.LinearLayout").child("android.widget.RelativeLayout").offspring("com.qfun.pokio:id/main_footbar_minebtn").offspring("com.qfun.pokio:id/foot_img_icon").click()
         username=poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
         #===========进入个人信息获取角色名================
-        if username == first_name:
-            print(content4)
-            print('--' * 30)
-            stop_app("com.qfun.pokio")
-            sleep(5)
+        end_time=time.time()
+        check_time=start_time-end_time
+        print('注册时间成功到点击username时间为：',check_time)
+        if check_time < 60:
+            if username == first_name:
+                print(content4)
+                stop_app("com.qfun.pokio")
+                sleep(5)
         #===========断言成功：角色名与创建使用的相同===============
+        else:
+            print('由于注册时间过长（超过了60S），本次不继续验证防止触发服务器报错')
+            return
     except:
         if poco("com.qfun.pokio:id/tv_user_name").exists():
             username=poco("com.qfun.pokio:id/tv_user_name").get_text()
@@ -133,6 +141,8 @@ def Sweden_sign_up():
         poco("com.qfun.pokio:id/tv_confirm").click()
         print("注册使用昵称：", 'Tomer')
         print("注册完成，等待验证")
+        print("进行弹窗处理")
+        start_time=time.time()
         #===========注册完成===============
         poco("com.qfun.pokio:id/txt_title_right").wait(15).click()
         #===========跳过导流===============
@@ -145,10 +155,18 @@ def Sweden_sign_up():
             "com.qfun.pokio:id/foot_img_icon").click()
         username = poco("com.qfun.pokio:id/tv_user_name").wait(20).get_text()
         # ===========进入个人信息获取角色名================
-        if username == 'Tomer':
-            print(content4)
-            stop_app("com.qfun.pokio")
-            sleep(5)
+        end_time=time.time()
+        check_time=start_time-end_time
+        print('注册时间成功到点击username时间为：',check_time)
+        if check_time < 60:
+            if username == 'Tomer':
+                print(content4)
+                stop_app("com.qfun.pokio")
+                sleep(5)
+        #===========断言成功：角色名与创建使用的相同===============
+        else:
+            print('由于注册时间过长（超过了60S），本次不继续验证防止触发服务器报错')
+            return
         # ===========断言成功：角色名与创建使用的相同===============
     except:
         if poco("com.qfun.pokio:id/tv_user_name").exists():
