@@ -1,5 +1,12 @@
 # -*- encoding=utf8 -*-
 __author__ = "Morrow"
+__title__="Allway_login"
+__desc__="""
+登陆模块脚本，包含 邮箱、手机、第三方的facebook，主要测试点：
+1、登陆成功
+2、登陆后账号数据是否正确
+
+"""
 
 import traceback
 import pickle
@@ -9,9 +16,9 @@ from decorator import *
 from airtest.core.api import *
 from airtest.core.api import connect_device
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-dev = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO R15
-poco = AndroidUiautomationPoco(dev)
-# dev1 = connect_device("Android://127.0.0.1:5037/127.0.0.1:62001?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH")#夜神模拟器1
+# dev = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO R1
+dev1 = connect_device("Android://127.0.0.1:5037/127.0.0.1:62001?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH")#夜神模拟器1
+poco = AndroidUiautomationPoco(dev1)
 # set_current(0)
 # use javacap:解决IDE中手机画面黑屏的问题
 # use ADB orientation ：解决屏幕旋转问题

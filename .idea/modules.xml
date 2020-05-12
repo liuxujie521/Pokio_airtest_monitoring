@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:/PokioAirtestMonitor/.idea/PokioAirtestMonitor.iml" filepath="D:/PokioAirtestMonitor/.idea/PokioAirtestMonitor.iml" />
+      <module fileurl="file://D:/Morrow/Zhou_ban_ben/.idea/Zhou_ban_ben.iml" filepath="D:/Morrow/Zhou_ban_ben/.idea/Zhou_ban_ben.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/airtest_pokio.iml" filepath="$PROJECT_DIR$/.idea/airtest_pokio.iml" />
     </modules>
   </component>
