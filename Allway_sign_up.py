@@ -10,9 +10,9 @@ from decorator import *
 from airtest.core.api import *
 from airtest.core.api import connect_device
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-dev = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO R15
+dev = connect_device("Android://127.0.0.1:5037/127.0.0.1:62001?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH")#夜神模拟器1
+# dev1 = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO R1
 poco = AndroidUiautomationPoco(dev)
-# dev1 = connect_device("Android://127.0.0.1:5037/127.0.0.1:62001?cap_method=JAVACAP&&ori_method=ADBORI&&touch_method=ADBTOUCH")#夜神模拟器1
 # set_current(0)
 # use javacap:解决IDE中手机画面黑屏的问题
 # use ADB orientation ：解决屏幕旋转问题

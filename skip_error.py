@@ -3,28 +3,31 @@ __author__ = "Administrator"
 
 from airtest.core.api import *
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
-# poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
-from airtest.core.api import connect_device
-dev = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO R15
-poco = AndroidUiautomationPoco(dev)
+poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
+# from airtest.core.api import connect_device
+# dev = connect_device("Android://127.0.0.1:5037/ORYTDMMB5PJRDE7D")  # OPPO R15
+# poco = AndroidUiautomationPoco(dev)
 
-def skip_fingerprint():
-    print("skip_fingerprint")
-    while poco("com.qfun.pokio:id/checkbox").wait(5).exists():
-        print("AAA")
-        poco("com.qfun.pokio:id/checkbox").click()
-        poco("com.qfun.pokio:id/tv_cancel").click()
-# ===========如果存在指纹绑定，跳过===============
-def skip_pop_up():
-    print("skip_pop_up")
-    while poco("com.qfun.pokio:id/iv_content").wait(5).exists():
-        print("BBB")
-        poco("com.qfun.pokio:id/iv_close_ad").click()
-# ===========如果存在登陆弹框，跳过===============
-def skip_guide():
-    print("skip_guide")
-    while poco("com.qfun.pokio:id/iv_next").wait(5).exists():
-        poco("com.qfun.pokio:id/iv_next").click()
-
-
-
+def SkipMethod():
+    isGuide = True
+    Fingerprint=poco("com.qfun.pokio:id/checkbox")#指纹登陆
+    PopUp=poco("com.qfun.pokio:id/iv_content")#弹框
+    Guide=poco("com.qfun.pokio:id/iv_next")#新手引导
+    while isGuide:
+        try:
+            ui=poco.wait_for_any([Fingerprint,PopUp,Guide],timeout=60)
+            #   没找到以上内容则不进行操作
+        except:
+            isGuide = False
+            print('没有需要跳过的内容')
+            break
+        if ui is Fingerprint:
+            Fingerprint.click()
+            print('已跳过指纹引导')
+        elif ui is PopUp:
+            PopUp.click()
+            print('已跳过弹框')
+        elif ui is Guide:
+            Guide.click()
+            print('已跳过新手引导')
+        #   找到则进行点击跳过

@@ -1,12 +1,7 @@
-# -*- encoding=utf8 -*-
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
 __author__ = "Morrow"
-__title__="Allway_login"
-__desc__="""
-登陆模块脚本，包含 邮箱、手机、第三方的facebook，主要测试点：
-1、登陆成功
-2、登陆后账号数据是否正确
 
-"""
 import pytest
 import traceback
 import skip_error
@@ -53,8 +48,7 @@ def test_Emaillogin(start_stop):
         print('--'*30)
         print("获取到Nickname：",Nickname)
         print("测试点：邮箱登陆成功")
-        assert Nickname==Namecheck_Email,f'当前账号为：{Nickname}' \
-                                         f'测试点：判断当前账号登陆后是否为给定账号'
+        assert Nickname==Namecheck_Email,print('测试点：登陆账号数据验证成功')
         #===========断言：获取的昵称==给定的昵称===============
         print('--'*30)
             #===========成功后直接登出===============
@@ -134,4 +128,5 @@ def __test_Facebooklogin(start_stop):
 
 if __name__ == '__main__':
     pytest.main(['test_py.py','-s','-v'])
-    #pytest test_py.py --html=./report.html
+
+

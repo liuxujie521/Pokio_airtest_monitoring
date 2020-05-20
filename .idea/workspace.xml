@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="866c9100-42f3-483a-acce-1e326611000a" name="Default Changelist" comment="" />
+    <list default="true" id="866c9100-42f3-483a-acce-1e326611000a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/airtest_pokio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/airtest_pokio.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Allway_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/Allway_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Allway_sign_up.py" beforeDir="false" afterPath="$PROJECT_DIR$/Allway_sign_up.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Create_Mtt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_Mtt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/log.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/skip_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/skip_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,26 +20,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1566637832203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/PokioAirtestMonitor" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1589790025283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Mtt.coverage" NAME="Mtt Coverage Results" MODIFIED="1570701916995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/airtest_pokio$Requests_pokio.coverage" NAME="Requests_pokio Coverage Results" MODIFIED="1563528921269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/airtest_pokio$test.coverage" NAME="test Coverage Results" MODIFIED="1563528990075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/airtest_pokio$Allway_login.coverage" NAME="Allway_login Coverage Results" MODIFIED="1563360447811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Requests_pokio.coverage" NAME="Requests_pokio Coverage Results" MODIFIED="1566476299744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/PokioAirtestMonitor" />
-    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Allway_login.coverage" NAME="Allway_login Coverage Results" MODIFIED="1572506204375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test_maoyan.coverage" NAME="test_maoyan Coverage Results" MODIFIED="1585222691990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Morrow/Zhou_ban_ben" />
     <SUITE FILE_PATH="coverage/airtest_pokio$Control_layer.coverage" NAME="Control_layer Coverage Results" MODIFIED="1563357197447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/airtest_pokio$run_time.coverage" NAME="run_time Coverage Results" MODIFIED="1563268956374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test.coverage" NAME="test Coverage Results" MODIFIED="1582444378744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test_xiaoxi.coverage" NAME="test_xiaoxi Coverage Results" MODIFIED="1585752198664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Morrow" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test.coverage" NAME="test Coverage Results" MODIFIED="1589530518506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$tess.coverage" NAME="tess Coverage Results" MODIFIED="1565879457554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/PokioAirtestMonitor" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$pytest_for_test_py_test_Emaillogin.coverage" NAME="pytest for test_py.test_Emaillogin Coverage Results" MODIFIED="1589963173073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$pytest_in_test_py_py.coverage" NAME="pytest in test_py.py Coverage Results" MODIFIED="1589963328365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$pytest_for_test_py_test_Facebook.coverage" NAME="pytest for test_py.test_Facebook Coverage Results" MODIFIED="1589961539139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test0507.coverage" NAME="test0507 Coverage Results" MODIFIED="1585729345661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Morrow/PycharmProjects/Airtest1" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$skip_error.coverage" NAME="skip_error Coverage Results" MODIFIED="1589525310057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/airtest_pokio$test.coverage" NAME="test Coverage Results" MODIFIED="1563528990075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/airtest_pokio$Allway_login.coverage" NAME="Allway_login Coverage Results" MODIFIED="1563360447811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Allway_login.coverage" NAME="Allway_login Coverage Results" MODIFIED="1589525660634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test_xiaoxi.coverage" NAME="test_xiaoxi Coverage Results" MODIFIED="1589441470219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Morrow" />
+    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Create_Mtt.coverage" NAME="Create_Mtt Coverage Results" MODIFIED="1589789768423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Rungame.coverage" NAME="Rungame Coverage Results" MODIFIED="1566895441906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/PokioAirtestMonitor" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$gametable_page.coverage" NAME="gametable_page Coverage Results" MODIFIED="1566446621048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/PokioAirtestMonitor" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$pokio_crm.coverage" NAME="pokio_crm Coverage Results" MODIFIED="1566384458994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/PokioAirtestMonitor" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$Allway_sign_up.coverage" NAME="Allway_sign_up Coverage Results" MODIFIED="1566896388611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test_for_any.coverage" NAME="test_for_any Coverage Results" MODIFIED="1582444960716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$test0507.coverage" NAME="test0507 Coverage Results" MODIFIED="1585729345661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Morrow/PycharmProjects/Airtest1" />
-    <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$skip_error.coverage" NAME="skip_error Coverage Results" MODIFIED="1566808493787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Pokio_airtest_monitoring$conftest.coverage" NAME="conftest Coverage Results" MODIFIED="1585221623757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Morrow/Zhou_ban_ben" />
   </component>
   <component name="DatabaseView">
@@ -45,6 +60,7 @@
     <expand />
     <select />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$" userTempatePath="" />
   <component name="FUSProjectUsageTrigger">
     <session id="459197594">
       <usages-collector id="statistics.lifecycle.project">
@@ -82,46 +98,49 @@
     <session id="1835385195">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="41" />
+          <entry key="project.closed" value="43" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="12" />
-          <entry key="project.open.time.6" value="18" />
+          <entry key="project.open.time.6" value="19" />
           <entry key="project.open.time.7" value="9" />
           <entry key="project.open.time.8" value="8" />
-          <entry key="project.open.time.9" value="5" />
-          <entry key="project.opened" value="63" />
+          <entry key="project.open.time.9" value="7" />
+          <entry key="project.opened" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4525" />
+          <entry key="py" value="5994" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4525" />
+          <entry key="Python" value="5994" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="7" />
           <entry key="gitignore" value="1" />
+          <entry key="ini" value="2" />
           <entry key="pickle" value="1" />
           <entry key="png" value="1" />
-          <entry key="py" value="87" />
+          <entry key="py" value="112" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="1" />
+          <entry key="Ini" value="2" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Python" value="87" />
+          <entry key="Python" value="112" />
         </counts>
       </usages-collector>
     </session>
@@ -173,55 +192,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/Morrow/Zhou_ban_ben/test_maoyan.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#47#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createtable.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2508">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-              <folding>
-                <element signature="e#46#76#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createtable_page.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6919">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CRM.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1105">
-              <folding>
-                <element signature="e#16#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Mtt.py">
+        <entry file="file://$PROJECT_DIR$/Allway_login.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-929">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="440">
+              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="54" />
+              <folding>
+                <element signature="e#146#159#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_py.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="129" column="41" lean-forward="true" selection-start-line="4" selection-end-line="129" selection-end-column="41" />
+              <folding>
+                <element signature="e#68#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/skip_error.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#54#84#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Create_Mtt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2888">
+              <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
+              <folding>
+                <element signature="e#47#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Allway_sign_up.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-665">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
                 <element signature="e#47#58#0" expanded="true" />
               </folding>
@@ -230,22 +253,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gametable_tc.py">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/poco/drivers/android/uiautomation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/Morrow/Zhou_ban_ben/conftest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-              <folding>
-                <element signature="e#62#75#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2584">
+              <caret line="155" column="46" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -261,18 +272,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>requests</find>
-      <find>Requests_pokio</find>
-      <find>ding_ding</find>
-      <find>BASEDIR</find>
-      <find>Email_Account</find>
-      <find>Namecheck_Email</find>
-      <find>Namecheck_Facebook</find>
-      <find>url_sweden=</find>
-      <find>url_sweden</find>
-      <find>email_sweden</find>
-      <find>\n</find>
-      <find>content4</find>
       <find>content2</find>
       <find>com.qfun.pokio:id/btn_continue</find>
       <find>glo</find>
@@ -291,6 +290,18 @@
       <find>%</find>
       <find>event_uuid</find>
       <find>打开request耗时</find>
+      <find>ORYTDMMB5PJRDE7D</find>
+      <find>dev</find>
+      <find>test_Emaillogins</find>
+      <find>Namecheck_Email</find>
+      <find>test</find>
+      <find>__version__</find>
+      <find>version</find>
+      <find>print_exc</find>
+      <find>fixture</find>
+      <find>image_logo</find>
+      <find>name</find>
+      <find>csrfmiddlewaretoken</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -314,21 +325,25 @@
         <option value="D:/PokioAirtestMonitor/Requests_pokio.py" />
         <option value="D:/PokioAirtestMonitor/testss.py" />
         <option value="D:/PokioAirtestMonitor/test2.py" />
-        <option value="$PROJECT_DIR$/skip_error.py" />
         <option value="D:/PokioAirtestMonitor/gametable_tc.py" />
         <option value="D:/PokioAirtestMonitor/Rungame.py" />
         <option value="D:/PokioAirtestMonitor/createtable_page.py" />
         <option value="D:/PokioAirtestMonitor/gametable_page.py" />
-        <option value="$PROJECT_DIR$/Allway_sign_up.py" />
         <option value="$PROJECT_DIR$/Mtt.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/test_for_any.py" />
-        <option value="$PROJECT_DIR$/Allway_login.py" />
         <option value="D:/Morrow/Zhou_ban_ben/test_maoyan.py" />
         <option value="D:/Morrow/Zhou_ban_ben/test_xiaoxi.py" />
         <option value="D:/Morrow/PycharmProjects/Airtest1/test0507.py" />
         <option value="D:/Morrow/Zhou_ban_ben/conftest.py" />
         <option value="D:/Morrow/test_xiaoxi.py" />
+        <option value="$PROJECT_DIR$/Allway_sign_up.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/test2.py" />
+        <option value="$PROJECT_DIR$/Create_Mtt.py" />
+        <option value="$PROJECT_DIR$/skip_error.py" />
+        <option value="$PROJECT_DIR$/test_py.py" />
+        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/airtest/core/api.py" />
+        <option value="$PROJECT_DIR$/Allway_login.py" />
       </list>
     </option>
   </component>
@@ -339,8 +354,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1967" />
-    <option name="y" value="7" />
+    <option name="x" value="25" />
+    <option name="y" value="218" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -350,6 +365,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -365,11 +381,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="sys&#9;null&#9;null&#10;classmethod&#9;null&#9;null&#10;basedir&#9;null&#9;null&#10;logging&#9;null&#9;null&#10;requests&#9;null&#9;null&#10;jianyu&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="fixture&#9;null&#9;null&#10;pytest&#9;null&#9;null&#10;traceback&#9;null&#9;null&#10;skip_error&#9;FILE&#9;file://D:/Pokio_airtest_monitoring/skip_error.py&#10;start_cmd&#9;null&#9;null&#10;connect_device&#9;null&#9;null&#10;decorator&#9;FILE&#9;file://D:/Pokio_airtest_monitoring/decorator.py&#10;Requests_pokio&#9;FILE&#9;file://D:/Pokio_airtest_monitoring/Requests_pokio.py&#10;AndroidUiautomationPoco&#9;null&#9;null&#10;sys&#9;null&#9;null&#10;classmethod&#9;null&#9;null&#10;basedir&#9;null&#9;null&#10;logging&#9;null&#9;null&#10;requests&#9;null&#9;null&#10;jianyu&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="D:/Morrow/Zhou_ban_ben" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -393,52 +408,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_xiaoxi">
-    <configuration name="conftest" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Zhou_ban_ben" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Morrow/Zhou_ban_ben" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Morrow/Zhou_ban_ben/conftest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test0507" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Zhou_ban_ben" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Morrow/PycharmProjects/Airtest1" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Morrow/PycharmProjects/Airtest1/test0507.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test_for_any" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.pytest in test_py.py">
+    <configuration name="Create_Mtt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="airtest_pokio" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -451,7 +422,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_for_any.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Create_Mtt.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -460,20 +431,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_maoyan" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Zhou_ban_ben" />
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="airtest_pokio" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Morrow/Zhou_ban_ben" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Morrow/Zhou_ban_ben/test_maoyan.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -482,42 +453,68 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_xiaoxi" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Zhou_ban_ben" />
+    <configuration name="pytest for test_py.test_Emaillogin" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="airtest_pokio" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Morrow" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Morrow/test_xiaoxi.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_py.test_Emaillogin&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_py.test_Facebook" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="airtest_pokio" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_py.test_Facebook&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in test_py.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="airtest_pokio" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test_py.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test_for_any" />
-      <item itemvalue="Python.test_maoyan" />
-      <item itemvalue="Python.conftest" />
-      <item itemvalue="Python.test0507" />
-      <item itemvalue="Python.test_xiaoxi" />
+      <item itemvalue="Python tests.pytest for test_py.test_Emaillogin" />
+      <item itemvalue="Python tests.pytest in test_py.py" />
+      <item itemvalue="Python.Create_Mtt" />
+      <item itemvalue="Python.test2" />
+      <item itemvalue="Python tests.pytest for test_py.test_Facebook" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_xiaoxi" />
-        <item itemvalue="Python.test0507" />
-        <item itemvalue="Python.test_maoyan" />
-        <item itemvalue="Python.conftest" />
-        <item itemvalue="Python.test_for_any" />
+        <item itemvalue="Python tests.pytest in test_py.py" />
+        <item itemvalue="Python tests.pytest for test_py.test_Emaillogin" />
+        <item itemvalue="Python tests.pytest for test_py.test_Facebook" />
+        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.Create_Mtt" />
       </list>
     </recent_temporary>
   </component>
@@ -556,6 +553,38 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_for_test_py_test_Emaillogin - 2020.05.16 at 19h 57m 57s.xml">
+      <configuration name="pytest for test_py.test_Emaillogin" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_test_py_test_Emaillogin - 2020.05.16 at 19h 58m 52s.xml">
+      <configuration name="pytest for test_py.test_Emaillogin" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_test_py_test_Emaillogin - 2020.05.16 at 20h 04m 13s.xml">
+      <configuration name="pytest for test_py.test_Emaillogin" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_test_py_test_Facebook - 2020.05.20 at 15h 59m 07s.xml">
+      <configuration name="pytest for test_py.test_Facebook" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_test_py_py - 2020.05.20 at 16h 00m 41s.xml">
+      <configuration name="pytest in test_py.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_test_py_py - 2020.05.20 at 16h 09m 37s.xml">
+      <configuration name="pytest in test_py.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_test_py_py - 2020.05.20 at 16h 11m 09s.xml">
+      <configuration name="pytest in test_py.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_test_py_py - 2020.05.20 at 16h 13m 09s.xml">
+      <configuration name="pytest in test_py.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_test_py_test_Emaillogin - 2020.05.20 at 16h 27m 43s.xml">
+      <configuration name="pytest for test_py.test_Emaillogin" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_test_py_py - 2020.05.20 at 16h 31m 44s.xml">
+      <configuration name="pytest in test_py.py" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -566,15 +595,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.46925566" side_tool="true" weight="0.10660981" />
+      <window_info id="Structure" order="0" sideWeight="0.47014114" side_tool="true" weight="0.2597471" />
       <window_info id="Favorites" order="1" sideWeight="0.45362562" side_tool="true" weight="0.3022388" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.5298588" visible="true" weight="0.25922024" />
+      <window_info id="Database" order="3" weight="0.32995737" />
+      <window_info id="SciView" order="4" weight="0.32982087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" x="22" y="368" width="1876" height="303" id="Run" order="2" sideWeight="0.49307036" visible="true" weight="0.32899022" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.3995657" />
+      <window_info anchor="bottom" x="22" y="368" width="1876" height="303" id="Run" order="2" sideWeight="0.49307036" weight="0.33116177" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.39739415" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
@@ -582,14 +613,11 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32899022" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50692964" side_tool="true" weight="0.32899022" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32899022" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.34961998" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32899022" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" sideWeight="0.5307443" visible="true" weight="0.2585288" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5307443" visible="true" weight="0.11513859" />
@@ -654,26 +682,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="运行失败也重置计数" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pickle.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pickle" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/Python37/Lib/pickle.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/utils/simplerpc/transport/tcp/main.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/utils/simplerpc/simplerpc.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/utils/simplerpc/utils.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/freezeui/hierarchy.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/sdk/Selector.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/proxy.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/utils/simplerpc/transport/tcp/safetcp.py" />
-    <entry file="file://C:/Python37/Lib/site-packages/poco/utils/simplerpc/rpcclient.py" />
     <entry file="file://D:/PokioAirtestMonitor/pokio_crm.py" />
     <entry file="file://D:/PokioAirtestMonitor/test1.py" />
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1055577769/sys.py" />
@@ -701,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Requests_pokio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pokio_crm.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -715,20 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="22" column="16" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skip_error.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="115" column="75" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -750,34 +737,6 @@
       </provider>
     </entry>
     <entry file="file://D:/Morrow/Zhou_ban_ben/test_xiaoxi.py" />
-    <entry file="file://$PROJECT_DIR$/decorator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Allway_login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Allway_sign_up.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="198" column="8" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/airtest/core/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="89" column="40" lean-forward="true" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1229051315/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -792,15 +751,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Mtt.py" />
     <entry file="file://D:/Morrow/Zhou_ban_ben/test_maoyan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#47#60#0" expanded="true" />
-          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createtable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createtable_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CRM.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/gametable_tc.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -811,46 +785,146 @@
     </entry>
     <entry file="file://D:/Morrow/Zhou_ban_ben/conftest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="188">
           <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decorator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Requests_pokio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/airtest/core/android/adb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="296" selection-start-line="296" selection-end-line="296" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/traceback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="984" selection-start-line="984" selection-end-line="984" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/_pytest/capture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="423" selection-start-line="423" selection-end-line="423" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/pytest.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/_pytest/tmpdir.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/_pytest/fixtures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11576">
+          <caret line="161" column="40" selection-start-line="161" selection-start-column="33" selection-end-line="161" selection-end-column="40" />
           <folding>
-            <element signature="e#62#75#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createtable.py">
+    <entry file="file://$PROJECT_DIR$/Create_Mtt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2508">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="2888">
+          <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
           <folding>
-            <element signature="e#46#76#0" expanded="true" />
+            <element signature="e#47#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createtable_page.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/poco/drivers/android/uiautomation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6919">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="2584">
+          <caret line="155" column="46" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CRM.py">
+    <entry file="file://$PROJECT_DIR$/test2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1105">
+        <state relative-caret-position="190">
+          <caret line="10" column="20" selection-start-line="3" selection-end-line="4" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pytest.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/skip_error.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#16#46#0" expanded="true" />
+            <element signature="e#54#84#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mtt.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/airtest/core/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-929">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="-38">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Allway_sign_up.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding>
             <element signature="e#47#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_py.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="129" column="41" lean-forward="true" selection-start-line="4" selection-end-line="129" selection-end-column="41" />
+          <folding>
+            <element signature="e#68#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Allway_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="54" />
+          <folding>
+            <element signature="e#146#159#0" expanded="true" />
           </folding>
         </state>
       </provider>
