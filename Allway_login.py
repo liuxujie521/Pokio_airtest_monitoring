@@ -134,4 +134,4 @@ def __test_Facebooklogin(start_stop):
 
 if __name__ == '__main__':
     pytest.main(['test_py.py','-s','-v'])
-    #pytest test_py.py --html=./report.html
+    #pytest Allway_login.py --html=./Loginreport%date:~0,4%/%date:~5,2%/%date:~8,2%%time:~0,2%:%time:~3,2%:%time:~6,2%.html

@@ -11,8 +11,9 @@ poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=Fa
 def SkipMethod():
     isGuide = True
     Fingerprint=poco("com.qfun.pokio:id/checkbox")#指纹登陆
-    PopUp=poco("com.qfun.pokio:id/iv_content")#弹框
+    PopUp=poco("com.qfun.pokio:id/iv_content")#登陆弹框
     Guide=poco("com.qfun.pokio:id/iv_next")#新手引导
+    KycPop=Pass #KYC弹框
     while isGuide:
         try:
             ui=poco.wait_for_any([Fingerprint,PopUp,Guide],timeout=60)
